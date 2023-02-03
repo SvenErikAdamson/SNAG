@@ -1,8 +1,9 @@
-extends StaticBody2D
+extends RigidBody2D
 class_name Item
 
 @export var item: Resource: set = _set_item
 @onready var description: RichTextLabel = $Description
+@onready var outline_shader= load("res://scenes/item/Item.gdshader")
 
 var is_focused: bool = false
 var draggable: bool

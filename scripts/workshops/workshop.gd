@@ -1,10 +1,13 @@
 extends StaticBody2D
 class_name WorkShop
 
+@export var active: bool = false
+
 @export var input_area: NodePath
 @export var output_spot:NodePath
 
 
+@export var takes_list: Array[Resource]
 @export var takes: Resource
 @export var produces: Resource
 
@@ -13,6 +16,7 @@ class_name WorkShop
 @export var mltplr: float
 @export var production_time: float
 @export var input_required: bool = false
+@export var endless_production: bool = true
 
 @onready var item = load("res://scenes/item/Item.tscn")
 @onready var output: Marker2D = get_node(output_spot)
@@ -33,16 +37,22 @@ func start_production():
 		create_item()
 	
 
-
+func get_item_percentages():
+	pass
 func create_item():
 	var item_instance = item.instantiate()
 	item_instance.item = produces
 	item_instance.global_position = output.global_position
-
 	get_parent().add_child(item_instance)
 	full = false
+	if endless_production:
+		start_production()
 	
 func _process(_delta):
+	focus_workshop()
+
+
+func focus_workshop():
 	if is_focused:
 		set_modulate(Color(0.5, 1, 0.5, 1))
 	elif !is_focused:

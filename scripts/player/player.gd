@@ -71,18 +71,16 @@ func change_focus(current_focus):
 				object_focus = objects_around[index]
 
 
-
+#Refactor it smoll
 func _on_item_detector_body_entered(body):
 	if body is Item:
 		object_focus = body as Item
-		print(object_focus.get_class())
 		if !objects_around.is_empty():
 			objects_around[objects_around.size() - 1].is_focused = false
 		object_focus.is_focused = true
 		objects_around.append(object_focus)
 	elif body is WorkShop:
 		object_focus = body as WorkShop
-		print(object_focus.get_class())
 		if !objects_around.is_empty():
 			objects_around[objects_around.size() - 1].is_focused = false
 		object_focus.is_focused = true
@@ -93,10 +91,7 @@ func _on_item_detector_body_entered(body):
 		
 
 func _on_item_detector_body_exited(body):
-	if body is Item:
-		body.is_focused = false
-		objects_around.erase(body)
-	elif body is WorkShop:
+	if body != Player:
 		body.is_focused = false
 		objects_around.erase(body)
 

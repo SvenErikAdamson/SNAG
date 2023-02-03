@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://e4t086b2u0v1"]
+
+[ext_resource type="Shader" path="res://scenes/item/Item.gdshader" id="1_ghos3"]
+
+[resource]
+shader = ExtResource("1_ghos3")
+shader_parameter/outline_color = null

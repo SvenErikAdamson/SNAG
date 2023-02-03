@@ -8,7 +8,7 @@ func enter(_msg := {}) -> void:
 	animated_sprite.play("Walk")
 
 func physics_update(delta:float) -> void:
-	
+	Globals.energy -= delta
 	if player.get_input_direction() != Vector2.ZERO:
 		player.velocity = player.get_input_direction() * player.speed * player.acceleration * delta
 		player.move_and_slide()

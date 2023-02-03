@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0yd6j1x05vto"]
+[gd_scene load_steps=19 format=3 uid="uid://c0yd6j1x05vto"]
 
 [ext_resource type="Texture2D" uid="uid://ciddap0ctmmvs" path="res://assets/sprites/environment/test-tileset.png" id="1_fp08d"]
 [ext_resource type="PackedScene" uid="uid://b75buu8ygvc7m" path="res://scenes/player/Player.tscn" id="2_0hlr8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" path="res://scenes/item/data/Intestines.tres" id="4_fh7sk"]
 [ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="5_btnfo"]
 [ext_resource type="Texture2D" uid="uid://dw83lvucgwm8x" path="res://assets/sprites/ui/inventory/main_panel.png" id="6_1q3ql"]
+[ext_resource type="Script" path="res://scripts/ui/interface_manager.gd" id="7_clgup"]
 [ext_resource type="Texture2D" uid="uid://36kieadmqbv7" path="res://assets/sprites/ui/inventory/title.png" id="7_r22pq"]
 [ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="8_y61af"]
 [ext_resource type="Texture2D" uid="uid://qr23jw2n40kl" path="res://assets/sprites/ui/x_normal.png" id="9_smw32"]
@@ -203,6 +204,9 @@ sources/0 = SubResource("TileSetAtlasSource_6ftww")
 [sub_resource type="Theme" id="Theme_ckj45"]
 default_font = ExtResource("8_y61af")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4jm4"]
+bg_color = Color(0.768627, 0.552941, 0.247059, 1)
+
 [node name="Game" type="Node2D"]
 
 [node name="Level-00" type="Node2D" parent="."]
@@ -243,6 +247,7 @@ position = Vector2(107, 327)
 item = ExtResource("5_btnfo")
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("7_clgup")
 
 [node name="InventoryContainer" type="NinePatchRect" parent="UI"]
 visible = false
@@ -310,3 +315,26 @@ texture_disabled = ExtResource("12_c7aij")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="GUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnergyBar" type="ProgressBar" parent="UI/GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -26.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 123.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("8_y61af")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d4jm4")
+value = 15.0
+fill_mode = 3

@@ -1,16 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://odqr0eeogvhf"]
+[gd_scene load_steps=8 format=3 uid="uid://mish3owtg5i8"]
 
-[ext_resource type="Script" path="res://scripts/workshops/pod.gd" id="1_7k4fg"]
-[ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
-[ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="2_gwgun"]
-[ext_resource type="Resource" path="res://scenes/item/data/Intestines.tres" id="2_jhq4o"]
+[ext_resource type="Script" path="res://scripts/workshops/recycler.gd" id="1_tlc4i"]
+[ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_st16s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
-atlas = ExtResource("2_7rahq")
+atlas = ExtResource("4_st16s")
 region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80sme"]
-atlas = ExtResource("2_7rahq")
+atlas = ExtResource("4_st16s")
 region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_og8y4"]
@@ -39,15 +37,8 @@ size = Vector2(22, 40)
 radius = 22.0
 height = 44.0
 
-[node name="Pod" type="StaticBody2D"]
-script = ExtResource("1_7k4fg")
-input_area = NodePath("InteractionArea")
-output_spot = NodePath("Marker2D")
-takes_list = Array[Resource]([ExtResource("2_jhq4o"), null])
-takes = ExtResource("2_gwgun")
-produces = ExtResource("2_jhq4o")
-level = 1
-production_time = 5.0
+[node name="ReCycleMachine" type="StaticBody2D"]
+script = ExtResource("1_tlc4i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")

@@ -14,6 +14,10 @@ config/name="Ld52"
 run/main_scene="res://scenes/Game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 
+[autoload]
+
+Globals="*res://singletons/globals.gd"
+
 [display]
 
 window/size/viewport_width=1920
