@@ -1,19 +1,19 @@
 class_name Player
 extends CharacterBody2D
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var carried_sprite: Sprite2D = $CarriedObject
-@onready var item_prefab = load("res://scenes/item/Item.tscn")
+@onready var animated_sprite: 			AnimatedSprite2D 	= $AnimatedSprite2D
+@onready var carried_sprite: 			Sprite2D 			= $CarriedObject
+@onready var item_prefab 									= load("res://scenes/item/Item.tscn")
 
 
-var speed: int = 120
-var acceleration: int = 50
-var friction: int = 20
+var speed: 								int 				= 120
+var acceleration: 						int 				= 50
+var friction: 							int 				= 20
 
-var objects_around: Array
-var object_focus = null
-var item_carried = null
-var hands_full = false
+var objects_around: 					Array
+var object_focus											= null
+var item_carried 											= null
+var hands_full 												= false
 
 func ready():
 	set_velocity(Vector2.ZERO)
