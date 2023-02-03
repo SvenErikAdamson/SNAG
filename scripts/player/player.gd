@@ -91,7 +91,7 @@ func _on_item_detector_body_entered(body):
 		
 
 func _on_item_detector_body_exited(body):
-	if body != Player:
+	if body is Item or body is WorkShop:
 		body.is_focused = false
 		objects_around.erase(body)
 

@@ -8,6 +8,7 @@ class_name WorkShop
 
 
 @export var takes_list: 		Array[Resource]
+@export var produces_list:		Array[Resource]
 @export var takes: 				Resource
 @export var produces: 			Resource
 
@@ -32,7 +33,28 @@ var in_progress: 				bool		 = false
 
 
 
-
+	
+	
+func choose_random_item(items_array: Array = produces_list):
+	var chosen_value = null
+	if items_array.size() > 0:
+		var overall_chance: int = 0
+		for i in items_array:
+			overall_chance += i.weight
+			
+		var r_number = randi() % overall_chance
+		
+		
+		var _offset: int = 0
+		for i in produces_list:
+			if r_number < i.weight:
+				chosen_value = i.item_name
+				break
+			else:
+				_offset += i.weight
+				chosen_value = i.item_name
+	return chosen_value
+	
 func start_production():
 	if !is_full and !in_progress:
 		await get_tree().create_timer(production_time).timeout
@@ -40,12 +62,7 @@ func start_production():
 		in_progress = false
 		create_item()
 	
-func item_choice():
-	pass
-func get_item_percentages():
-	for item in takes_list:
-		print("yes")
-	pass
+
 func create_item():
 	var item_instance = item.instantiate()
 	item_instance.item = produces

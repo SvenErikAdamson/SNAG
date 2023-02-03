@@ -1,14 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="Organ" load_steps=3 format=3 uid="uid://bhmk2ng8e6qfc"]
 
 [ext_resource type="Script" path="res://scripts/item/classes/organ_class.gd" id="1_1pbb4"]
 [ext_resource type="Texture2D" uid="uid://c3rg3oj427dk" path="res://assets/sprites/items/heart.png" id="1_vo41t"]
 
 [resource]
 script = ExtResource("1_1pbb4")
-organ_value = null
+organ_value = 2
 draggable = true
+spawn_rate = 0
 item_name = "Heart"
 item_texture = ExtResource("1_vo41t")
 quantity = null
-weight = null
+weight = 10
+value = 2
 hover_text = "Test"

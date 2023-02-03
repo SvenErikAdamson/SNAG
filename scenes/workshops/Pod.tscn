@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/workshops/pod.gd" id="1_7k4fg"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
-[ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="2_gwgun"]
-[ext_resource type="Resource" path="res://scenes/item/data/Intestines.tres" id="2_jhq4o"]
+[ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="2_gwgun"]
+[ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="2_jhq4o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
 atlas = ExtResource("2_7rahq")
@@ -43,7 +43,7 @@ height = 44.0
 script = ExtResource("1_7k4fg")
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
-takes_list = Array[Resource]([ExtResource("2_jhq4o"), null])
+produces_list = Array[Resource]([ExtResource("2_jhq4o"), ExtResource("2_gwgun"), ExtResource("2_jhq4o")])
 takes = ExtResource("2_gwgun")
 produces = ExtResource("2_jhq4o")
 level = 1

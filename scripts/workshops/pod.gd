@@ -3,9 +3,12 @@ extends WorkShop
 
 
 func _ready():
-	if endless_production:
-		start_production()
-
+	randomize()
+	
+		
+func _process(_delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		print( choose_random_item())
 		
 		
 func _on_interaction_area_body_entered(body):

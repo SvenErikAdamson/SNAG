@@ -1,14 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="Organ" load_steps=3 format=3 uid="uid://c6upe0q1jsmm7"]
 
 [ext_resource type="Texture2D" uid="uid://vdm1mddwjss" path="res://assets/sprites/items/intestines.png" id="1_a7tle"]
 [ext_resource type="Script" path="res://scripts/item/classes/organ_class.gd" id="1_hmcd2"]
 
 [resource]
 script = ExtResource("1_hmcd2")
-organ_value = null
+organ_value = 1
+draggable = true
+spawn_rate = 0
 item_name = "Intestines"
 item_texture = ExtResource("1_a7tle")
-draggable = true
 quantity = null
-weight = null
+weight = 5
+value = 1
 hover_text = "Yum looking"
