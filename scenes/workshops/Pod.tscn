@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://odqr0eeogvhf"]
+
+[ext_resource type="Script" path="res://scripts/workshops/pod.gd" id="1_7k4fg"]
+[ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
+[ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="2_gwgun"]
+[ext_resource type="Resource" path="res://scenes/item/data/Intestines.tres" id="2_jhq4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
+atlas = ExtResource("2_7rahq")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80sme"]
+atlas = ExtResource("2_7rahq")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_og8y4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_batji")
+}],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80sme")
+}],
+"loop": true,
+"name": &"Full",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aagux"]
+size = Vector2(22, 40)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7xhm"]
+radius = 22.0
+height = 44.0
+
+[node name="Pod" type="StaticBody2D"]
+script = ExtResource("1_7k4fg")
+input_area = NodePath("InteractionArea")
+output_spot = NodePath("Marker2D")
+takes = ExtResource("2_gwgun")
+produces = ExtResource("2_jhq4o")
+level = 1
+production_time = 5.0
+input_required = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_og8y4")
+animation = &"Empty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_aagux")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_l7xhm")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(24, 0)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

@@ -1,0 +1,38 @@
+extends StaticBody2D
+class_name Item
+
+@export var item: Resource: set = _set_item
+@onready var description: RichTextLabel = $Description
+
+var is_focused: bool = false
+var draggable: bool
+var in_hand: bool
+var holder = null
+var sprite = null
+var hover_text: String
+
+func get_class(): return "Item"
+func _set_item(new_item: Resource):
+	item = new_item
+	sprite = item.get_texture()
+	$Sprite2D.texture = item.get_texture()
+	draggable = item.get_drag_state()
+	hover_text  = item.get_hover_text()
+
+
+func _physics_process(_delta):
+	if is_focused:
+		set_modulate(Color(0.5, 1, 0.5, 1))
+	elif !is_focused:
+		set_modulate(Color(1, 1, 1, 1))
+
+
+
+func _on_mouse_entered():
+	description.text = ("In_hand: " + str(in_hand))
+
+
+
+func _on_mouse_exited():
+	description.text = ""
+
