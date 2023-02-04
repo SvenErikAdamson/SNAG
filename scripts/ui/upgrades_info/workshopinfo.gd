@@ -6,7 +6,6 @@ var parent
 
 signal update_ui(on_update)
 func _ready():
-	update_ui.emit()
 	pass
 	
 	

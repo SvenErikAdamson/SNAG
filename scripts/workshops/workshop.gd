@@ -41,7 +41,7 @@ var in_progress: 				bool		 = false
 
 var next_level: int = 0
 
-signal update_ui(on_update)
+
 
 func _ready():
 	workshop_info = workshop_info_instance.instantiate()
