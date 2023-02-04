@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://hmnmhvi8tq33"]
+
+[ext_resource type="Script" path="res://singletons/soundmanager.gd" id="1_soxba"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_soxba")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="TitleScreenMusic" type="AudioStreamPlayer" parent="Music"]
+
+[node name="GamePlayMusic" type="AudioStreamPlayer" parent="Music"]
+
+[node name="EndMusic" type="AudioStreamPlayer" parent="Music"]
+
+[node name="Effects" type="Node" parent="."]
+
+[node name="EffectsStreamPlayer" type="AudioStreamPlayer" parent="Effects"]
+
+[node name="EffectsStreamPlayer2" type="AudioStreamPlayer" parent="Effects"]
+
+[node name="EffectsStreamPlayer3" type="AudioStreamPlayer" parent="Effects"]
+
+[node name="EffectsStreamPlayer4" type="AudioStreamPlayer" parent="Effects"]
+
+[node name="EffectsStreamPlayer5" type="AudioStreamPlayer" parent="Effects"]
+
+[node name="EffectsStreamPlayer6" type="AudioStreamPlayer" parent="Effects"]
+
+[node name="EffectsStreamPlayer7" type="AudioStreamPlayer" parent="Effects"]
+
+[node name="EffectsStreamPlayer8" type="AudioStreamPlayer" parent="Effects"]

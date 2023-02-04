@@ -2,12 +2,12 @@ extends WorkShop
 @onready var animation_player: AnimatedSprite2D = $AnimatedSprite2D
 
 
-func _ready():
-	pass
+	
+#move it to workshop?
 func _process(_delta):
 	focus_workshop()
 	if Input.is_action_just_pressed("interact") and relevant_person != null:
-		print("Yes")
+
 		var item_check = check_item(relevant_person.item_carried)
 		if item_check:
 			relevant_person.item_into_machine()
@@ -33,3 +33,13 @@ func _on_interaction_area_body_exited(body):
 		relevant_person = null
 
 
+
+
+func _on_mouse_entered():
+	if is_instance_valid(workshop_info):
+		workshop_info.show()
+
+
+func _on_mouse_exited():
+	if is_instance_valid(workshop_info):
+		workshop_info.hide()

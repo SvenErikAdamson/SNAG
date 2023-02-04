@@ -1,13 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://c0yd6j1x05vto"]
+[gd_scene load_steps=20 format=3 uid="uid://c0yd6j1x05vto"]
 
 [ext_resource type="Texture2D" uid="uid://ciddap0ctmmvs" path="res://assets/sprites/environment/test-tileset.png" id="1_fp08d"]
 [ext_resource type="PackedScene" uid="uid://b75buu8ygvc7m" path="res://scenes/player/Player.tscn" id="2_0hlr8"]
 [ext_resource type="PackedScene" uid="uid://caolty8lx0k2w" path="res://scenes/item/Item.tscn" id="3_jw7os"]
-[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="4_8kb5d"]
 [ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="4_fh7sk"]
 [ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="5_btnfo"]
-[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="5_qugss"]
 [ext_resource type="Texture2D" uid="uid://dw83lvucgwm8x" path="res://assets/sprites/ui/inventory/main_panel.png" id="6_1q3ql"]
+[ext_resource type="PackedScene" uid="uid://pcdo1kg7iq2o" path="res://scenes/workshops/Pod.tscn" id="6_5ka56"]
 [ext_resource type="Script" path="res://scripts/ui/interface_manager.gd" id="7_clgup"]
 [ext_resource type="Texture2D" uid="uid://36kieadmqbv7" path="res://assets/sprites/ui/inventory/title.png" id="7_r22pq"]
 [ext_resource type="PackedScene" uid="uid://n74706el1ke" path="res://scenes/workshops/IdeaMachine.tscn" id="7_vo5jf"]
@@ -16,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cmbugbkw1ksfl" path="res://assets/sprites/ui/x_pressed.png" id="10_pe0jy"]
 [ext_resource type="Texture2D" uid="uid://c5liorpjvqxqy" path="res://assets/sprites/ui/x_hover.png" id="11_03opt"]
 [ext_resource type="Texture2D" uid="uid://8dr8wtwmjdlf" path="res://assets/sprites/ui/x_disabled.png" id="12_c7aij"]
-[ext_resource type="PackedScene" uid="uid://odqr0eeogvhf" path="res://scenes/workshops/Pod.tscn" id="14_o0va5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ftww"]
 texture = ExtResource("1_fp08d")
@@ -230,16 +228,6 @@ layer_1/tile_data = PackedInt32Array(1, 786432, 0, 65537, 786432, 1, 131073, 786
 [node name="Player" parent="Level-00" instance=ExtResource("2_0hlr8")]
 position = Vector2(263, 254)
 
-[node name="Pod" parent="Level-00" instance=ExtResource("14_o0va5")]
-position = Vector2(64, 167)
-upgrades = Array[Dictionary]([{
-ExtResource("4_8kb5d"): 2,
-ExtResource("5_qugss"): 3
-}, {
-ExtResource("5_qugss"): 6,
-ExtResource("4_8kb5d"): 2
-}])
-
 [node name="Item" parent="Level-00" instance=ExtResource("3_jw7os")]
 position = Vector2(104, 243)
 item = ExtResource("4_fh7sk")
@@ -255,6 +243,9 @@ item = ExtResource("5_btnfo")
 [node name="Heart2" parent="Level-00" instance=ExtResource("3_jw7os")]
 position = Vector2(107, 327)
 item = ExtResource("5_btnfo")
+
+[node name="Pod" parent="Level-00" instance=ExtResource("6_5ka56")]
+position = Vector2(202, 167)
 
 [node name="IdeaMachine" parent="Level-00" instance=ExtResource("7_vo5jf")]
 position = Vector2(368, 168)
@@ -336,6 +327,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="EnergyBar" type="ProgressBar" parent="UI/GUI"]
 layout_mode = 1
