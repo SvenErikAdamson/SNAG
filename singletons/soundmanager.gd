@@ -1,11 +1,16 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const CLICK = preload("res://assets/audio/sounds/click.wav")
+const TILL = preload("res://assets/audio/sounds/till.wav")
+const DROP =preload("res://assets/audio/sounds/drop.wav")
+@onready var EffectsPlayer = $EffectsPlayer
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func play_sound(sound):
+	for audio_player in  EffectsPlayer.get_children():
+		if not audio_player.playing:
+				audio_player.stream = sound
+				audio_player.play()
+				break
+		

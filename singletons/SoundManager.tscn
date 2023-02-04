@@ -13,20 +13,20 @@ script = ExtResource("1_soxba")
 
 [node name="EndMusic" type="AudioStreamPlayer" parent="Music"]
 
-[node name="Effects" type="Node" parent="."]
+[node name="EffectsPlayer" type="Node" parent="."]
 
-[node name="EffectsStreamPlayer" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer" type="AudioStreamPlayer" parent="EffectsPlayer"]
 
-[node name="EffectsStreamPlayer2" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer2" type="AudioStreamPlayer" parent="EffectsPlayer"]
 
-[node name="EffectsStreamPlayer3" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer3" type="AudioStreamPlayer" parent="EffectsPlayer"]
 
-[node name="EffectsStreamPlayer4" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer4" type="AudioStreamPlayer" parent="EffectsPlayer"]
 
-[node name="EffectsStreamPlayer5" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer5" type="AudioStreamPlayer" parent="EffectsPlayer"]
 
-[node name="EffectsStreamPlayer6" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer6" type="AudioStreamPlayer" parent="EffectsPlayer"]
 
-[node name="EffectsStreamPlayer7" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer7" type="AudioStreamPlayer" parent="EffectsPlayer"]
 
-[node name="EffectsStreamPlayer8" type="AudioStreamPlayer" parent="Effects"]
+[node name="EffectsStreamPlayer8" type="AudioStreamPlayer" parent="EffectsPlayer"]

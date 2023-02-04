@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.0", "Forward Plus")
 [autoload]
 
 Globals="*res://singletons/globals.gd"
+SoundManager="*res://singletons/SoundManager.tscn"
 
 [display]
 

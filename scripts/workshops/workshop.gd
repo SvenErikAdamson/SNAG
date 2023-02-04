@@ -51,7 +51,6 @@ func check_item(item):
 	check_if_lvl()
 	if !upgrades[next_level].is_empty():
 		if upgrades[next_level].has(item):
-			
 			if upgrades[next_level].get(item) == 0:
 				upgrades[next_level].erase(item)
 				update_ui.emit(upgrades[next_level])

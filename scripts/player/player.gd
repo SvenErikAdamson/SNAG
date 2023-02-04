@@ -29,6 +29,7 @@ func _physics_process(_delta):
 
 func item_pickup(item):
 	if item != null and !objects_around.is_empty():
+		SoundManager.play_sound(SoundManager.TILL)
 		item_carried = item.item
 		if !objects_around.is_empty():
 			object_focus = objects_around.front()
@@ -39,6 +40,7 @@ func item_pickup(item):
 		hands_full = true
 
 func item_drop():
+	SoundManager.play_sound(SoundManager.DROP)
 	object_focus = null
 	var item_instance = item_prefab.instantiate()
 	item_instance.item =  item_carried
@@ -56,7 +58,7 @@ func swap_item():
 	pass
 
 func change_focus(current_focus):
-
+	SoundManager.play_sound(SoundManager.CLICK)
 	if current_focus != null:
 		var index = objects_around.find(current_focus)
 		current_focus.is_focused = false
