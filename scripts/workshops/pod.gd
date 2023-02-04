@@ -4,11 +4,8 @@ extends WorkShop
 
 func _ready():
 	randomize()
-	
+	start_production_cycle()
 		
-func _process(_delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		print( choose_random_item())
 		
 		
 func _on_interaction_area_body_entered(body):

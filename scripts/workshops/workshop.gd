@@ -9,8 +9,6 @@ class_name WorkShop
 
 @export var takes_list: 		Array[Resource]
 @export var produces_list:		Array[Resource]
-@export var takes: 				Resource
-@export var produces: 			Resource
 
 @export var level: 				int
 @export var progress: 			float
@@ -34,8 +32,9 @@ var in_progress: 				bool		 = false
 
 
 	
-	
-func choose_random_item(items_array: Array = produces_list):
+# Choosing a single random item to spawn
+# Chance depends on the weight the Item Resource has
+func choose_item(items_array: Array = produces_list):
 	var chosen_value = null
 	if items_array.size() > 0:
 		var overall_chance: int = 0
@@ -43,34 +42,37 @@ func choose_random_item(items_array: Array = produces_list):
 			overall_chance += i.weight
 			
 		var r_number = randi() % overall_chance
-		
-		
 		var _offset: int = 0
 		for i in produces_list:
 			if r_number < i.weight:
-				chosen_value = i.item_name
+				chosen_value = i
 				break
 			else:
 				_offset += i.weight
-				chosen_value = i.item_name
+				chosen_value = i
 	return chosen_value
 	
-func start_production():
+	
+func start_production_cycle():
 	if !is_full and !in_progress:
 		await get_tree().create_timer(production_time).timeout
 		is_full = true
 		in_progress = false
 		create_item()
 	
-
 func create_item():
+	var item_to_create = null
+	if produces_list.size() > 1:
+		item_to_create = choose_item()
+	else:
+		item_to_create = produces_list[0]
 	var item_instance = item.instantiate()
-	item_instance.item = produces
+	item_instance.item = item_to_create
 	item_instance.global_position = output.global_position
 	get_parent().add_child(item_instance)
 	is_full = false
 	if endless_production:
-		start_production()
+		start_production_cycle()
 	
 func _process(_delta):
 	focus_workshop()

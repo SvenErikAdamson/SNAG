@@ -44,10 +44,9 @@ script = ExtResource("1_7k4fg")
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
 produces_list = Array[Resource]([ExtResource("2_jhq4o"), ExtResource("2_gwgun"), ExtResource("2_jhq4o")])
-takes = ExtResource("2_gwgun")
-produces = ExtResource("2_jhq4o")
 level = 1
-production_time = 5.0
+production_time = 3.0
+endless_production = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")

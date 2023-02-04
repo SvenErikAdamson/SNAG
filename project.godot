@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Ld52"
+config/name="Synstem"
+config/description="It's something"
 run/main_scene="res://scenes/Game.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 
