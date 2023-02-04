@@ -3,9 +3,8 @@ class_name BaseItem
 
 @export var item_name: String
 @export var item_texture: Texture
-@export var quantity: int
 @export var weight: int
-@export var value: int
+@export var value_class: int
 
 @export_multiline var hover_text: String
 

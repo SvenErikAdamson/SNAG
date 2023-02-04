@@ -3,19 +3,16 @@ extends WorkShop
 
 
 func _ready():
-	pass
+	start_production_cycle()
+
 func _process(_delta):
 	focus_workshop()
-	if Input.is_action_just_pressed("interact") and relevant_person != null:
-		print("Yes")
-		var item_check = check_item(relevant_person.item_carried)
-		if item_check:
-			relevant_person.item_into_machine()
+	if Input.is_action_just_pressed("interact"):
 		## if the player has a item that's required for the upgrade:
 		## 1) look through our required items for upgrade
 		## if the player has a item that can be put into the machine:
 		pass
-	
+
 #	if Input.is_action_just_pressed("interact") and !is_full and !in_progress and relevant_person != null and input_required:
 #		if relevant_person.item_carried == takes:
 #			relevant_person.item_into_machine()
@@ -31,5 +28,4 @@ func _on_interaction_area_body_entered(body):
 func _on_interaction_area_body_exited(body):
 	if body is Player:
 		relevant_person = null
-
 

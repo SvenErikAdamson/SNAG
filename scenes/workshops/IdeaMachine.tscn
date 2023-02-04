@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://mish3owtg5i8"]
+[gd_scene load_steps=10 format=3 uid="uid://n74706el1ke"]
 
-[ext_resource type="Script" path="res://scripts/workshops/recycler.gd" id="1_tlc4i"]
-[ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_st16s"]
+[ext_resource type="Script" path="res://scripts/workshops/idea_machine.gd" id="1_k2jia"]
+[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="2_hpc8u"]
+[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="3_bd4sq"]
+[ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_i4yef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
-atlas = ExtResource("4_st16s")
+atlas = ExtResource("4_i4yef")
 region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80sme"]
-atlas = ExtResource("4_st16s")
+atlas = ExtResource("4_i4yef")
 region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_og8y4"]
@@ -37,21 +39,17 @@ size = Vector2(22, 40)
 radius = 22.0
 height = 44.0
 
-[node name="ReCycleMachine" type="StaticBody2D"]
-script = ExtResource("1_tlc4i")
-input_area = null
-output_spot = null
-takes_list = null
-produces_list = null
-takes = null
-produces = null
-level = null
-progress = null
+[node name="IdeaMachine" type="StaticBody2D"]
+script = ExtResource("1_k2jia")
+input_area = NodePath("InteractionArea")
+output_spot = NodePath("Marker2D")
+produces_list = Array[Resource]([ExtResource("2_hpc8u"), ExtResource("3_bd4sq")])
+upgrade_req_lvl = null
+level = 1
 mltplr = null
-production_time = null
-input_required = null
-endless_production = null
-active = null
+production_time = 3.0
+endless_production = true
+hover_text = "This machine is amazing"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")

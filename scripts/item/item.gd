@@ -6,7 +6,6 @@ class_name Item
 @onready var outline_shader= load("res://scenes/item/Item.gdshader")
 
 var is_focused: bool = false
-var draggable: bool
 var in_hand: bool
 var holder = null
 var sprite = null
@@ -19,7 +18,6 @@ func _set_item(new_item: Resource):
 	item = new_item
 	sprite = item.get_texture()
 	$Sprite2D.texture = item.get_texture()
-	draggable = item.get_drag_state()
 	hover_text  = item.get_hover_text()
 
 

@@ -49,6 +49,7 @@ func item_drop():
 	
 func item_into_machine():
 	carried_sprite.hide()
+	item_carried= null
 	hands_full = false
 	
 func swap_item():

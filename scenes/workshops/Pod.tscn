@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://odqr0eeogvhf"]
+[gd_scene load_steps=12 format=3 uid="uid://odqr0eeogvhf"]
 
 [ext_resource type="Script" path="res://scripts/workshops/pod.gd" id="1_7k4fg"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
 [ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="2_gwgun"]
 [ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="2_jhq4o"]
+[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="4_hsev4"]
+[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="5_5j60e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
 atlas = ExtResource("2_7rahq")
@@ -44,9 +46,11 @@ script = ExtResource("1_7k4fg")
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
 produces_list = Array[Resource]([ExtResource("2_jhq4o"), ExtResource("2_gwgun"), ExtResource("2_jhq4o")])
-level = 1
 production_time = 3.0
-endless_production = true
+upgrades = Array[Dictionary]([{
+ExtResource("4_hsev4"): 2,
+ExtResource("5_5j60e"): 3
+}, {}])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")
