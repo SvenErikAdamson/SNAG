@@ -7,10 +7,11 @@ extends WorkShop
 func _process(_delta):
 	focus_workshop()
 	if Input.is_action_just_pressed("interact") and relevant_person != null:
-
+		check_if_lvl()
 		var item_check = check_item(relevant_person.item_carried)
 		if item_check:
 			relevant_person.item_into_machine()
+			update_ui.emit(upgrades[next_level])
 		## if the player has a item that's required for the upgrade:
 		## 1) look through our required items for upgrade
 		## if the player has a item that can be put into the machine:
@@ -36,10 +37,8 @@ func _on_interaction_area_body_exited(body):
 
 
 func _on_mouse_entered():
-	if is_instance_valid(workshop_info):
-		workshop_info.show()
+	$WorkShopInfo.show()
 
 
 func _on_mouse_exited():
-	if is_instance_valid(workshop_info):
-		workshop_info.hide()
+	$WorkShopInfo.hide()

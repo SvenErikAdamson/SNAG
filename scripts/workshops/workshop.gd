@@ -11,7 +11,7 @@ class_name WorkShop
 @export var produces_list:		Array[Resource]
 @export var production_time: 	float
 
-@export_group("Upgrades")
+@export_group("Levels & Upgrades")
 @export var level: 				int
 @export var progress: 			float
 @export var upgrades: Array[Dictionary]
@@ -28,12 +28,12 @@ class_name WorkShop
 
 @export_multiline var hover_text: String
 
-@onready var workshop_info_instance				= preload("res://scenes/ui/WorkShopInfo.tscn")
+
 @onready var item_scene					 		= load("res://scenes/item/Item.tscn")
 @onready var output: 			Marker2D 	= get_node(output_spot)
 @onready var input: 			Area2D 		= get_node(input_area)
 
-var workshop_info
+
 var relevant_person							 = null
 var is_focused:					bool		 = false
 var is_full: 					bool		 = false
@@ -41,56 +41,33 @@ var in_progress: 				bool		 = false
 
 var next_level: int = 0
 
-
+signal update_ui(upgrades_sent)
 
 func _ready():
-	workshop_info = workshop_info_instance.instantiate()
-	add_child(workshop_info)
-	workshop_info.position.y -= 70
-	workshop_info.position.x -= 35
-	workshop_info.parent = self
-	workshop_info.update_ui.connect(self._on_update)
-	workshop_info.hide()
-	create_item_ui()
-# Checks if player given item is in the current-upgrade path
-# Moves on if upgrade complete
-# Probably should split it
-#func connect_signal():
-#	owner.connect("update_ui",self ,"_on_upwdadte_ui")
+	update_ui.emit(upgrades[next_level])
 
-func create_item_ui():
-	if is_instance_valid(workshop_info):
-		workshop_info.update_ui.emit()
-
-#	if !upgrades[next_level].is_empty():
-#		for item in upgrades[next_level].keys():
-#			var text = str(upgrades[next_level].get(item))
-#			var image = item.item_texture
-#			workshop_info.create_item_boxes(text, image)
-			
-func _on_update():
-	print("yooo")
-	pass
-#	if !upgrades[next_level].is_empty():
-#		for item in upgrades[next_level].keys():
-#			var text = str(upgrades[next_level].get(item))
-#			var image = item.item_texture
-#			workshop_info.create_item_boxes(text, image)
 #
 func check_item(item):
+	check_if_lvl()
 	if !upgrades[next_level].is_empty():
 		if upgrades[next_level].has(item):
-
-			if upgrades[next_level].get(item) <= 0:
+			
+			if upgrades[next_level].get(item) == 0:
 				upgrades[next_level].erase(item)
-
-			else:
-				upgrades[next_level][item] -= 1
-				print(upgrades[next_level].get(item))
+				update_ui.emit(upgrades[next_level])
 				return true
-	else:
-		next_level += 1
+			elif upgrades[next_level].get(item) > 0:
+				upgrades[next_level][item] -= 1
+				update_ui.emit(upgrades[next_level])
+				return true
+	update_ui.emit(upgrades[next_level])
+	check_if_lvl()
 
+func check_if_lvl():
+	if upgrades[next_level].is_empty():
+		next_level +=1
+		print("level up!")
+		update_ui.emit(upgrades[next_level])
 	
 # Choosing a single random item to spawn
 # Chance depends on the weight the Item Resource has

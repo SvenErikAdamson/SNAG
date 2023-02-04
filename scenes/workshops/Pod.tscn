@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pcdo1kg7iq2o"]
+[gd_scene load_steps=13 format=3 uid="uid://pcdo1kg7iq2o"]
 
 [ext_resource type="Script" path="res://scripts/workshops/pod.gd" id="1_7k4fg"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="2_jhq4o"]
 [ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="4_hsev4"]
 [ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="5_5j60e"]
+[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="7_6cem4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
 atlas = ExtResource("2_7rahq")
@@ -49,9 +50,11 @@ output_spot = NodePath("Marker2D")
 produces_list = Array[Resource]([ExtResource("2_jhq4o"), ExtResource("2_gwgun"), ExtResource("2_jhq4o")])
 production_time = 3.0
 upgrades = Array[Dictionary]([{
-ExtResource("4_hsev4"): 2,
-ExtResource("5_5j60e"): 3
-}, {}])
+ExtResource("4_hsev4"): 1,
+ExtResource("5_5j60e"): 1
+}, {
+ExtResource("4_hsev4"): 2
+}])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")
@@ -69,6 +72,13 @@ shape = SubResource("CapsuleShape2D_l7xhm")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(24, 0)
+
+[node name="WorkShopInfo" parent="." instance=ExtResource("7_6cem4")]
+visible = false
+offset_left = -34.0
+offset_top = -71.0
+offset_right = 39.0
+offset_bottom = -43.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
