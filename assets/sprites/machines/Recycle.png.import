@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkeb4o8koxtow"
-path="res://.godot/imported/income_pod.png-9457db8ed11a40d4ddb6ff1427d54d64.ctex"
+uid="uid://dvfq1lob77qsi"
+path="res://.godot/imported/Recycle.png-f0a0eb25ed751d5d5643d0e1bbf98246.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/machines/income_pod.png"
-dest_files=["res://.godot/imported/income_pod.png-9457db8ed11a40d4ddb6ff1427d54d64.ctex"]
+source_file="res://assets/sprites/machines/Recycle.png"
+dest_files=["res://.godot/imported/Recycle.png-f0a0eb25ed751d5d5643d0e1bbf98246.ctex"]
 
 [params]
 

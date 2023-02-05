@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://pcdo1kg7iq2o"]
+[gd_scene load_steps=12 format=3 uid="uid://pcdo1kg7iq2o"]
 
 [ext_resource type="Script" path="res://scripts/workshops/pod.gd" id="1_7k4fg"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
-[ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="2_gwgun"]
-[ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="2_jhq4o"]
+[ext_resource type="Resource" uid="uid://og53ww8vhp32" path="res://scenes/item/data/Human.tres" id="2_ivyp2"]
 [ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="4_hsev4"]
 [ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="5_5j60e"]
 [ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="7_6cem4"]
@@ -36,7 +35,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aagux"]
-size = Vector2(22, 40)
+size = Vector2(22, 31)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7xhm"]
 radius = 22.0
@@ -47,7 +46,7 @@ input_pickable = true
 script = ExtResource("1_7k4fg")
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
-produces_list = Array[Resource]([ExtResource("2_jhq4o"), ExtResource("2_gwgun"), ExtResource("2_jhq4o")])
+produces_list = Array[Resource]([ExtResource("2_ivyp2")])
 production_time = 3.0
 upgrades = Array[Dictionary]([{
 ExtResource("4_hsev4"): 1,
@@ -55,13 +54,14 @@ ExtResource("5_5j60e"): 1
 }, {
 ExtResource("4_hsev4"): 2
 }])
+endless_production = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")
 animation = &"Empty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_aagux")
 
 [node name="InteractionArea" type="Area2D" parent="."]
@@ -71,7 +71,7 @@ position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_l7xhm")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(24, 0)
+position = Vector2(0, 24)
 
 [node name="WorkShopInfo" parent="." instance=ExtResource("7_6cem4")]
 visible = false

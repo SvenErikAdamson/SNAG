@@ -45,8 +45,18 @@ signal update_ui(upgrades_sent)
 
 func _ready():
 	update_ui.emit(upgrades[next_level])
+	if endless_production:
+		start_production_cycle()
 
 #
+func is_item_input(item):
+	if takes_list.has(item):
+		return 1
+	elif upgrades[next_level].has(item):
+		return 2
+	else:
+		return 3
+		
 func check_item(item):
 	check_if_lvl()
 	if !upgrades[next_level].is_empty():
@@ -54,9 +64,11 @@ func check_item(item):
 			if upgrades[next_level].get(item) == 0:
 				upgrades[next_level].erase(item)
 				update_ui.emit(upgrades[next_level])
-				return true
+			
 			elif upgrades[next_level].get(item) > 0:
 				upgrades[next_level][item] -= 1
+				if upgrades[next_level].get(item) == 0:
+					upgrades[next_level].erase(item)
 				update_ui.emit(upgrades[next_level])
 				return true
 	update_ui.emit(upgrades[next_level])

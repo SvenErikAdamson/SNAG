@@ -44,10 +44,8 @@ script = ExtResource("1_k2jia")
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
 produces_list = Array[Resource]([ExtResource("2_hpc8u"), ExtResource("3_bd4sq")])
-upgrade_req_lvl = null
-level = 1
-mltplr = null
 production_time = 3.0
+level = 1
 endless_production = true
 hover_text = "This machine is amazing"
 

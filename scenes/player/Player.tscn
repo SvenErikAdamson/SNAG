@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://b75buu8ygvc7m"]
+[gd_scene load_steps=23 format=3 uid="uid://b75buu8ygvc7m"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g16gw"]
 [ext_resource type="Texture2D" uid="uid://ci2s4u4g2eolq" path="res://assets/sprites/bloopy/Bloopy_redux-Sheet.png" id="2_qvh4l"]
+[ext_resource type="Texture2D" uid="uid://cndbkpk8x0nop" path="res://assets/sprites/misc/light.png" id="2_rckbx"]
 [ext_resource type="Script" path="res://scripts/statemachine/statemachine.gd" id="3_2oenj"]
 [ext_resource type="Script" path="res://scripts/player/idle.gd" id="4_vlor3"]
 [ext_resource type="Script" path="res://scripts/player/walk.gd" id="5_wnqww"]
@@ -111,7 +112,15 @@ size = Vector2(11, 14)
 radius = 24.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_g16gw")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.7
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.407843)
+texture = ExtResource("2_rckbx")
+texture_scale = 0.6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jqoql")

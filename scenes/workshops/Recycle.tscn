@@ -1,11 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://mish3owtg5i8"]
+[gd_scene load_steps=13 format=3 uid="uid://mish3owtg5i8"]
 
 [ext_resource type="Script" path="res://scripts/workshops/recycler.gd" id="1_tlc4i"]
+[ext_resource type="Texture2D" uid="uid://dvfq1lob77qsi" path="res://assets/sprites/machines/Recycle.png" id="2_iyq4v"]
+[ext_resource type="Resource" uid="uid://og53ww8vhp32" path="res://scenes/item/data/Human.tres" id="2_p0a4l"]
+[ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="3_rvc8d"]
+[ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="4_6igtf"]
+[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="4_q260t"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_st16s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
-atlas = ExtResource("4_st16s")
-region = Rect2(0, 0, 32, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mhqh"]
+atlas = ExtResource("2_iyq4v")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80sme"]
 atlas = ExtResource("4_st16s")
@@ -15,7 +20,7 @@ region = Rect2(32, 0, 32, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_batji")
+"texture": SubResource("AtlasTexture_2mhqh")
 }],
 "loop": true,
 "name": &"Empty",
@@ -31,34 +36,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aagux"]
-size = Vector2(22, 40)
+size = Vector2(96, 50)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7xhm"]
 radius = 22.0
 height = 44.0
 
 [node name="ReCycleMachine" type="StaticBody2D"]
+input_pickable = true
 script = ExtResource("1_tlc4i")
-input_area = null
-output_spot = null
-takes_list = null
-produces_list = null
-takes = null
-produces = null
-level = null
-progress = null
-mltplr = null
-production_time = null
-input_required = null
-endless_production = null
-active = null
+input_area = NodePath("InteractionArea")
+output_spot = NodePath("Marker2D")
+takes_list = Array[Resource]([ExtResource("2_p0a4l")])
+produces_list = Array[Resource]([ExtResource("3_rvc8d"), ExtResource("4_6igtf")])
+input_required = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")
 animation = &"Empty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_aagux")
 
 [node name="InteractionArea" type="Area2D" parent="."]
@@ -68,7 +65,16 @@ position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_l7xhm")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(24, 0)
+position = Vector2(8, 32)
 
+[node name="WorkShopInfo" parent="." instance=ExtResource("4_q260t")]
+visible = false
+offset_left = -37.0
+offset_top = -94.0
+offset_right = 36.0
+offset_bottom = -66.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

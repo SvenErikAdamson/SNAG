@@ -10,6 +10,7 @@ func _process(_delta):
 		check_if_lvl()
 		var item_check = check_item(relevant_person.item_carried)
 		if item_check:
+			SoundManager.play_sound(SoundManager.TILL)
 			relevant_person.item_into_machine()
 			update_ui.emit(upgrades[next_level])
 		## if the player has a item that's required for the upgrade:

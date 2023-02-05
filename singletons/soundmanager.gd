@@ -4,6 +4,7 @@ extends Node
 const CLICK = preload("res://assets/audio/sounds/click.wav")
 const TILL = preload("res://assets/audio/sounds/till.wav")
 const DROP =preload("res://assets/audio/sounds/drop.wav")
+const BLIP = preload("res://assets/audio/sounds/blip.wav")
 @onready var EffectsPlayer = $EffectsPlayer
 
 
