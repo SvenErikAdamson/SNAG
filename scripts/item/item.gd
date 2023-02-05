@@ -2,7 +2,6 @@ extends RigidBody2D
 class_name Item
 
 @export var item: Resource: set = _set_item
-@onready var description: RichTextLabel = $Description
 @onready var outline_shader= load("res://scenes/item/Item.gdshader")
 
 var is_focused: bool = false
@@ -29,11 +28,4 @@ func _physics_process(_delta):
 
 
 
-func _on_mouse_entered():
-	description.text = ("In_hand: " + str(in_hand))
-
-
-
-func _on_mouse_exited():
-	description.text = ""
 

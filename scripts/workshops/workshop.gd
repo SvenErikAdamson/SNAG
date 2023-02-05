@@ -2,9 +2,10 @@ extends StaticBody2D
 class_name WorkShop
 
 
-
+@export var machine_name: String = ""
 @export var input_area: 		NodePath
 @export var output_spot:		NodePath
+@export var sprite: NodePath
 
 @export_group("Production")
 @export var takes_list: 		Array[Resource]
@@ -12,7 +13,6 @@ class_name WorkShop
 @export var production_time: 	float
 
 @export_group("Levels & Upgrades")
-@export var level: 				int
 @export var progress: 			float
 @export var upgrades: Array[Dictionary]
 @export_group("")
@@ -28,57 +28,86 @@ class_name WorkShop
 
 @export_multiline var hover_text: String
 
-
 @onready var item_scene					 		= load("res://scenes/item/Item.tscn")
 @onready var output: 			Marker2D 	= get_node(output_spot)
 @onready var input: 			Area2D 		= get_node(input_area)
-
+@onready var machine_sprite: AnimatedSprite2D = get_node(sprite)
 
 var relevant_person							 = null
 var is_focused:					bool		 = false
 var is_full: 					bool		 = false
 var in_progress: 				bool		 = false
 
-var next_level: int = 0
+var level: int = 0
 
 signal update_ui(upgrades_sent)
+signal level_up(name_m, lvl)
 
 func _ready():
-	update_ui.emit(upgrades[next_level])
+	level_up.emit(machine_name, level)
+	update_ui.emit(upgrades[level])
 	if endless_production:
 		start_production_cycle()
 
-#
-func is_item_input(item):
+func player_interaction():
+	if Input.is_action_just_pressed("interact") and relevant_person != null and can_interact(relevant_person.item_carried):
+		var type = check_interaction_type(relevant_person.item_carried)
+		match type:
+			1: 
+				relevant_person.item_into_machine()
+				start_production_cycle()
+			2:
+				var can_upgrade = upgrade_check(relevant_person.item_carried)
+				if can_upgrade:
+					SoundManager.play_sound(SoundManager.TILL)
+					relevant_person.item_into_machine()
+					update_ui.emit(upgrades[level])
+					
+			3: 
+				print("Something is wrong")
+				
+				
+func can_interact(item):
+	if takes_list.has(item) or upgrades[level].has(item):
+		return true
+	elif upgrades[level].has(item):
+		print("yo")
+		return true
+	else:
+		print("nothing")
+		return false
+		
+func check_interaction_type(item):
 	if takes_list.has(item):
 		return 1
-	elif upgrades[next_level].has(item):
+	if upgrades[level].has(item):
 		return 2
 	else:
 		return 3
 		
-func check_item(item):
+func upgrade_check(item):
 	check_if_lvl()
-	if !upgrades[next_level].is_empty():
-		if upgrades[next_level].has(item):
-			if upgrades[next_level].get(item) == 0:
-				upgrades[next_level].erase(item)
-				update_ui.emit(upgrades[next_level])
+	if !upgrades[level].is_empty():
+		if upgrades[level].has(item):
+			if upgrades[level].get(item) == 0:
+				upgrades[level].erase(item)
+				update_ui.emit(upgrades[level])
 			
-			elif upgrades[next_level].get(item) > 0:
-				upgrades[next_level][item] -= 1
-				if upgrades[next_level].get(item) == 0:
-					upgrades[next_level].erase(item)
-				update_ui.emit(upgrades[next_level])
+			elif upgrades[level].get(item) > 0:
+				upgrades[level][item] -= 1
+				if upgrades[level].get(item) == 0:
+					upgrades[level].erase(item)
+				update_ui.emit(upgrades[level])
 				return true
-	update_ui.emit(upgrades[next_level])
+	update_ui.emit(upgrades[level])
 	check_if_lvl()
 
 func check_if_lvl():
-	if upgrades[next_level].is_empty():
-		next_level +=1
+	if upgrades[level].is_empty():
+		level +=1
 		print("level up!")
-		update_ui.emit(upgrades[next_level])
+		update_ui.emit(upgrades[level])
+		level_up.emit(machine_name, level)
 	
 # Choosing a single random item to spawn
 # Chance depends on the weight the Item Resource has
@@ -122,15 +151,14 @@ func create_item():
 	if endless_production:
 		start_production_cycle()
 	
-func _process(_delta):
-	focus_workshop()
+
 
 
 ## modulates everything, should get the sprite & only modualte that, ideally maybe only outline then.
 func focus_workshop():
 	if is_focused:
-		set_modulate(Color(0.5, 1, 0.5, 1))
+		machine_sprite.modulate = (Color(0.5, 1, 0.5, 1))
 	elif !is_focused:
-		set_modulate(Color(1, 1, 1, 1))
+		machine_sprite.modulate = (Color(1, 1, 1, 1))
 
 

@@ -47,8 +47,11 @@ input_pickable = true
 script = ExtResource("1_tlc4i")
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
+sprite = NodePath("AnimatedSprite2D")
 takes_list = Array[Resource]([ExtResource("2_p0a4l")])
 produces_list = Array[Resource]([ExtResource("3_rvc8d"), ExtResource("4_6igtf")])
+production_time = 15.0
+upgrades = Array[Dictionary]([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}])
 input_required = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -43,9 +43,9 @@ height = 44.0
 script = ExtResource("1_k2jia")
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
+sprite = NodePath("AnimatedSprite2D")
 produces_list = Array[Resource]([ExtResource("2_hpc8u"), ExtResource("3_bd4sq")])
 production_time = 3.0
-level = 1
 endless_production = true
 hover_text = "This machine is amazing"
 
