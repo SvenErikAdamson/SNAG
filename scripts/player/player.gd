@@ -6,9 +6,9 @@ extends CharacterBody2D
 @onready var item_prefab 									= load("res://scenes/item/Item.tscn")
 
 
-var speed: 								int 				= 120
-var acceleration: 						int 				= 50
-var friction: 							int 				= 20
+var speed: float = 240
+var acceleration: float = 50
+var friction: float = acceleration / speed
 
 var objects_around: 					Array
 var object_focus											= null
@@ -19,7 +19,10 @@ func ready():
 	set_velocity(Vector2.ZERO)
 
 
-func _physics_process(_delta):
+	
+	
+func _physics_process(delta):
+	apply_friction(delta)
 	if Input.is_action_just_pressed("swap_focus"):
 		change_focus(object_focus)
 	if Input.is_action_just_pressed("interact") and !hands_full and object_focus is Item:
@@ -91,7 +94,7 @@ func _on_item_detector_body_entered(body):
 
 
 
-		
+
 
 func _on_item_detector_body_exited(body):
 	if body is Item or body is WorkShop:
@@ -108,3 +111,6 @@ func get_input_direction() -> Vector2:
 	if input_direction  > Vector2.ZERO:
 		$AnimatedSprite2D.flip_h= false
 	return input_direction 
+
+func apply_friction(delta: float):
+	velocity -= velocity * friction * delta

@@ -149,6 +149,7 @@ script = ExtResource("5_wnqww")
 _animated_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.5, 3.5)
 
 [node name="CarriedObject" type="Sprite2D" parent="."]
 visible = false

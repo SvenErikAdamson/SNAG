@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://mish3owtg5i8"]
+[gd_scene load_steps=15 format=3 uid="uid://mish3owtg5i8"]
 
 [ext_resource type="Script" path="res://scripts/workshops/recycler.gd" id="1_tlc4i"]
 [ext_resource type="Texture2D" uid="uid://dvfq1lob77qsi" path="res://assets/sprites/machines/Recycle.png" id="2_iyq4v"]
@@ -7,6 +7,8 @@
 [ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="4_6igtf"]
 [ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="4_q260t"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_st16s"]
+[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="5_feudb"]
+[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="6_rutjp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mhqh"]
 atlas = ExtResource("2_iyq4v")
@@ -45,13 +47,17 @@ height = 44.0
 [node name="ReCycleMachine" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_tlc4i")
+machine_name = "Recycle"
 input_area = NodePath("InteractionArea")
 output_spot = NodePath("Marker2D")
 sprite = NodePath("AnimatedSprite2D")
 takes_list = Array[Resource]([ExtResource("2_p0a4l")])
 produces_list = Array[Resource]([ExtResource("3_rvc8d"), ExtResource("4_6igtf")])
 production_time = 15.0
-upgrades = Array[Dictionary]([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}])
+upgrades = Array[Dictionary]([{
+ExtResource("5_feudb"): 5,
+ExtResource("6_rutjp"): 2
+}, {}, {}, {}, {}, {}, {}, {}, {}, {}])
 input_required = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -72,10 +78,10 @@ position = Vector2(8, 32)
 
 [node name="WorkShopInfo" parent="." instance=ExtResource("4_q260t")]
 visible = false
-offset_left = -37.0
-offset_top = -94.0
-offset_right = 36.0
-offset_bottom = -66.0
+offset_left = -33.0
+offset_top = -127.0
+offset_right = 40.0
+offset_bottom = -57.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

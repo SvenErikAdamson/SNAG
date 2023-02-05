@@ -76,6 +76,7 @@ shape = SubResource("CapsuleShape2D_l7xhm")
 position = Vector2(0, 24)
 
 [node name="WorkShopInfo" parent="." instance=ExtResource("7_6cem4")]
+visible = false
 offset_left = -32.0
 offset_top = -115.0
 offset_right = 41.0

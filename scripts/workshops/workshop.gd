@@ -50,7 +50,7 @@ func _ready():
 		start_production_cycle()
 
 func player_interaction():
-	if Input.is_action_just_pressed("interact") and relevant_person != null and can_interact(relevant_person.item_carried):
+	if Input.is_action_just_pressed("interact") and relevant_person != null and can_interact(relevant_person.item_carried) and relevant_person.item_carried != null:
 		var type = check_interaction_type(relevant_person.item_carried)
 		match type:
 			1: 
@@ -68,10 +68,7 @@ func player_interaction():
 				
 				
 func can_interact(item):
-	if takes_list.has(item) or upgrades[level].has(item):
-		return true
-	elif upgrades[level].has(item):
-		print("yo")
+	if takes_list.has(item) or upgrades[level].has(item) and relevant_person.item_carried != null :
 		return true
 	else:
 		print("nothing")
@@ -129,7 +126,6 @@ func choose_item(items_array: Array = produces_list):
 				chosen_item = i
 	return chosen_item
 	
-	
 func start_production_cycle():
 	if !is_full and !in_progress:
 		await get_tree().create_timer(production_time).timeout
@@ -151,9 +147,6 @@ func create_item():
 	if endless_production:
 		start_production_cycle()
 	
-
-
-
 ## modulates everything, should get the sprite & only modualte that, ideally maybe only outline then.
 func focus_workshop():
 	if is_focused:

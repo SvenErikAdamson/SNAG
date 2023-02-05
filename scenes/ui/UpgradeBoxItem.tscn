@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://duu041uuaxc53"]
+[gd_scene load_steps=5 format=3 uid="uid://duu041uuaxc53"]
 
 [ext_resource type="Texture2D" uid="uid://bryb11wd2xai" path="res://assets/sprites/items/brain.png" id="1_4fut0"]
 [ext_resource type="Script" path="res://scripts/ui/upgrades_info/upgradeboxitem.gd" id="1_n5nvl"]
 [ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="2_wqnge"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f65hu"]
+light_mode = 1
+
 [node name="UpgradeItemBox" type="VBoxContainer"]
+material = SubResource("CanvasItemMaterial_f65hu")
 script = ExtResource("1_n5nvl")
 
 [node name="TextureRect" type="TextureRect" parent="."]

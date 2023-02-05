@@ -10,7 +10,7 @@ func enter(_msg := {}) -> void:
 func physics_update(delta:float) -> void:
 	Globals.energy -= delta
 	if player.get_input_direction() != Vector2.ZERO:
-		player.velocity = player.get_input_direction() * player.speed * player.acceleration * delta
+		player.velocity = player.get_input_direction() * player.speed* delta * player.acceleration
 		player.move_and_slide()
 		
 	elif player.get_input_direction().is_equal_approx(Vector2.ZERO):
