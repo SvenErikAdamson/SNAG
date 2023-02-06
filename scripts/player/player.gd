@@ -1,19 +1,19 @@
 class_name Player
 extends CharacterBody2D
 
-@onready var animated_sprite: 			AnimatedSprite2D 	= $AnimatedSprite2D
-@onready var carried_sprite: 			Sprite2D 			= $CarriedObject
-@onready var item_prefab 									= load("res://scenes/item/Item.tscn")
-
-
-var speed: float = 240
-var acceleration: float = 50
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var carried_sprite: Sprite2D = $CarriedObject
+@onready var item_prefab = load("res://scenes/item/Item.tscn")
+@onready var timer = $Timer
+@onready var player_audio = $AudioStreamPlayer
+var speed: float = 150
+var acceleration: float = 75
 var friction: float = acceleration / speed
 
-var objects_around: 					Array
-var object_focus											= null
-var item_carried 											= null
-var hands_full 												= false
+var objects_around: Array
+var object_focus = null
+var item_carried = null
+var hands_full  = false
 
 func ready():
 	set_velocity(Vector2.ZERO)
@@ -22,6 +22,7 @@ func ready():
 	
 	
 func _physics_process(delta):
+	Globals.energy -= delta
 	apply_friction(delta)
 	if Input.is_action_just_pressed("swap_focus"):
 		change_focus(object_focus)

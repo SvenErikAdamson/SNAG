@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vdm1mddwjss"
-path="res://.godot/imported/intestines.png-66248b40c7935681f763a882de369399.ctex"
+uid="uid://dckvyw0xl6esg"
+path="res://.godot/imported/CentralPower.png-239a3d08f8397e73e6d2b051798c2d38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/intestines.png"
-dest_files=["res://.godot/imported/intestines.png-66248b40c7935681f763a882de369399.ctex"]
+source_file="res://assets/sprites/machines/CentralPower.png"
+dest_files=["res://.godot/imported/CentralPower.png-239a3d08f8397e73e6d2b051798c2d38.ctex"]
 
 [params]
 

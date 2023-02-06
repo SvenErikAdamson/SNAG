@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b75buu8ygvc7m"]
+[gd_scene load_steps=24 format=3 uid="uid://bie1xtr862liu"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g16gw"]
 [ext_resource type="Texture2D" uid="uid://ci2s4u4g2eolq" path="res://assets/sprites/bloopy/Bloopy_redux-Sheet.png" id="2_qvh4l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/player/idle.gd" id="4_vlor3"]
 [ext_resource type="Script" path="res://scripts/player/walk.gd" id="5_wnqww"]
 [ext_resource type="Texture2D" uid="uid://bryb11wd2xai" path="res://assets/sprites/items/brain.png" id="6_qkrmm"]
+[ext_resource type="AudioStream" uid="uid://b6j5aopqhw7pm" path="res://assets/audio/sounds/bloopy/walk/walk_concrete.ogg" id="8_g4mph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_voua4"]
 atlas = ExtResource("2_qvh4l")
@@ -102,7 +103,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 6.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2qmp"]
@@ -155,6 +156,12 @@ zoom = Vector2(3.5, 3.5)
 visible = false
 position = Vector2(0, -17)
 texture = ExtResource("6_qkrmm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_g4mph")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="ItemDetector" to="." method="_on_item_detector_body_entered"]
 [connection signal="body_exited" from="ItemDetector" to="." method="_on_item_detector_body_exited"]

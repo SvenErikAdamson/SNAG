@@ -1,24 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://n74706el1ke"]
+[gd_scene load_steps=9 format=3 uid="uid://brsmwkdm06mgb"]
 
-[ext_resource type="Script" path="res://scripts/workshops/idea_machine.gd" id="1_k2jia"]
-[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="2_hpc8u"]
-[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="3_bd4sq"]
-[ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_i4yef"]
-[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="5_dy4jj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
-atlas = ExtResource("4_i4yef")
-region = Rect2(0, 0, 32, 48)
+[ext_resource type="Script" path="res://scripts/workshops/central_power.gd" id="1_4mcss"]
+[ext_resource type="Texture2D" uid="uid://dckvyw0xl6esg" path="res://assets/sprites/machines/CentralPower.png" id="2_yot2b"]
+[ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_qtleq"]
+[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="5_qv3bm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80sme"]
-atlas = ExtResource("4_i4yef")
+atlas = ExtResource("4_qtleq")
 region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_og8y4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_batji")
+"texture": ExtResource("2_yot2b")
 }],
 "loop": true,
 "name": &"Empty",
@@ -31,39 +26,30 @@ animations = [{
 "loop": true,
 "name": &"Full",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aagux"]
-size = Vector2(22, 40)
+size = Vector2(127, 63)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l7xhm"]
 radius = 22.0
 height = 44.0
 
-[node name="IdeaMachine" type="StaticBody2D"]
+[node name="CentralPower" type="StaticBody2D"]
 input_pickable = true
-script = ExtResource("1_k2jia")
-machine_name = "Free ideas here!"
-input_area = NodePath("InteractionArea")
-output_spot = NodePath("Marker2D")
-sprite = NodePath("AnimatedSprite2D")
-produces_list = Array[Resource]([ExtResource("2_hpc8u"), ExtResource("3_bd4sq")])
-production_time = 3.0
-upgrades = Array[Dictionary]([{
-ExtResource("2_hpc8u"): 5
-}, {
-ExtResource("2_hpc8u"): 10,
-ExtResource("3_bd4sq"): 2
-}, {}])
-endless_production = true
-hover_text = "This machine is amazing, give it a lick"
+script = ExtResource("1_4mcss")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")
 animation = &"Empty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(-7.5, 6.5)
 shape = SubResource("RectangleShape2D_aagux")
 
 [node name="InteractionArea" type="Area2D" parent="."]
@@ -75,7 +61,7 @@ shape = SubResource("CapsuleShape2D_l7xhm")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 24)
 
-[node name="WorkShopInfo" parent="." instance=ExtResource("5_dy4jj")]
+[node name="WorkShopInfo" parent="." instance=ExtResource("5_qv3bm")]
 visible = false
 offset_left = -32.0
 offset_top = -142.0
