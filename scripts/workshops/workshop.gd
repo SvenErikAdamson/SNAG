@@ -105,8 +105,7 @@ func check_if_lvl():
 		print("level up!")
 		update_ui.emit(upgrades[level])
 		level_up.emit(machine_name, level)
-	else:
-		print("Something went wrong with life")
+
 	
 # Choosing a single random item to spawn
 # Chance depends on the weight the Item Resource has

@@ -1,6 +1,6 @@
 extends Node
 
-
+const DOOR = preload("res://assets/audio/sounds/interactive/opening_short.wav")
 
 const CLICK = preload("res://assets/audio/sounds/click.wav")
 const TILL = preload("res://assets/audio/sounds/till.wav")
