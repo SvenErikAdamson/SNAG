@@ -9,7 +9,7 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 	
 func _physics_process(delta):
-#		owner.velocity = Vector2.ZERO.move_toward(Vector2.ZERO, human.friction * delta)
+		owner.velocity = Vector2.ZERO.move_toward(Vector2.ZERO, human.friction * delta)
 #		if human.alarmed == true:
 #			state_machine.transition_to("Alarmed")
 			
