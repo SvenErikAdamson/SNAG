@@ -14,7 +14,9 @@ func handle_input(_event: InputEvent) -> void:
 func update(_delta: float) -> void:
 	pass
 
-
+func get_random_state(state_list: Array):
+	state_list.shuffle()
+	return state_list.pop_front()
 
 func physics_update(_delta: float) -> void:
 	pass

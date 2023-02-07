@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dqbq3lv1cv4x7"]
+[gd_scene load_steps=41 format=3 uid="uid://dqbq3lv1cv4x7"]
 
 [ext_resource type="Texture2D" uid="uid://ciddap0ctmmvs" path="res://assets/sprites/environment/ground_set.png" id="1_qc56e"]
 [ext_resource type="PackedScene" uid="uid://bie1xtr862liu" path="res://scenes/entity/player/Player.tscn" id="2_0hlr8"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="8_y61af"]
 [ext_resource type="PackedScene" uid="uid://pcdo1kg7iq2o" path="res://scenes/workshops/HumanTrap.tscn" id="10_upt5w"]
 [ext_resource type="PackedScene" uid="uid://byc5b2cgrthnd" path="res://scenes/interactive/BasicDoor.tscn" id="11_0u7ak"]
+[ext_resource type="PackedScene" uid="uid://4m1a732wkwma" path="res://scenes/entity/human/Human.tscn" id="11_afcfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8d156"]
 texture = ExtResource("1_qc56e")
@@ -1078,6 +1079,13 @@ item = ExtResource("5_btnfo")
 
 [node name="Pod" parent="Level-00/Machines" instance=ExtResource("10_upt5w")]
 position = Vector2(200, 152)
+
+[node name="Human" parent="Level-00" instance=ExtResource("11_afcfn")]
+position = Vector2(-3, 221)
+speed = 300.0
+max_speed = 150.0
+acceleration = 324.0
+friction = 100.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("7_clgup")
