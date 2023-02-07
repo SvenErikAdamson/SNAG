@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://4m1a732wkwma"]
+[gd_scene load_steps=10 format=3 uid="uid://4m1a732wkwma"]
 
 [ext_resource type="Script" path="res://scripts/entity/human/human.gd" id="1_4lcow"]
 [ext_resource type="Texture2D" uid="uid://q25lugwl7pkq" path="res://assets/sprites/items/human.png" id="2_6lsen"]
 [ext_resource type="Script" path="res://scripts/statemachine/statemachine.gd" id="3_6e82g"]
 [ext_resource type="Script" path="res://scripts/entity/human/idle.gd" id="4_8330x"]
 [ext_resource type="Script" path="res://scripts/entity/human/wander.gd" id="5_8yfsx"]
+[ext_resource type="Script" path="res://scripts/entity/human/alarmed.gd" id="6_8l4y6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjqg4"]
 size = Vector2(8, 15)
@@ -12,8 +13,15 @@ size = Vector2(8, 15)
 [sub_resource type="CircleShape2D" id="CircleShape2D_uiu23"]
 radius = 7.07107
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqpem"]
+radius = 130.465
+
 [node name="Human" type="CharacterBody2D"]
 script = ExtResource("1_4lcow")
+speed = 400.0
+max_speed = 400.0
+acceleration = 20.0
+friction = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_6lsen")
@@ -40,4 +48,14 @@ script = ExtResource("5_8yfsx")
 [node name="Timer" type="Timer" parent="StateMachine/Wander"]
 one_shot = true
 
+[node name="Alarmed" type="Node" parent="StateMachine"]
+script = ExtResource("6_8l4y6")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_kqpem")
+
 [connection signal="timeout" from="StateMachine/Wander/Timer" to="StateMachine/Wander" method="_on_timer_timeout"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

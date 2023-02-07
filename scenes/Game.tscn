@@ -1080,12 +1080,11 @@ item = ExtResource("5_btnfo")
 [node name="Pod" parent="Level-00/Machines" instance=ExtResource("10_upt5w")]
 position = Vector2(200, 152)
 
+[node name="Human2" parent="Level-00" instance=ExtResource("11_afcfn")]
+position = Vector2(0, 216)
+
 [node name="Human" parent="Level-00" instance=ExtResource("11_afcfn")]
-position = Vector2(-3, 221)
-speed = 300.0
-max_speed = 150.0
-acceleration = 324.0
-friction = 100.0
+position = Vector2(0, 152)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("7_clgup")

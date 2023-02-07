@@ -2,6 +2,9 @@ extends State
 
 @onready var human = owner
 
+
+
+
 func enter(_msg := {}) -> void:
 	pass
 	
@@ -12,4 +15,5 @@ func _physics_process(delta):
 			human.wander.set_timer(randf_range(1,4))
 			state_machine.transition_to(random_state)
 			
-		
+
+
