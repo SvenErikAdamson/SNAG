@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4m1a732wkwma"]
+[gd_scene load_steps=11 format=3 uid="uid://4m1a732wkwma"]
 
 [ext_resource type="Script" path="res://scripts/entity/human/human.gd" id="1_4lcow"]
 [ext_resource type="Texture2D" uid="uid://q25lugwl7pkq" path="res://assets/sprites/items/human.png" id="2_6lsen"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/entity/human/idle.gd" id="4_8330x"]
 [ext_resource type="Script" path="res://scripts/entity/human/wander.gd" id="5_8yfsx"]
 [ext_resource type="Script" path="res://scripts/entity/human/alarmed.gd" id="6_8l4y6"]
+[ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="7_csqpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjqg4"]
 size = Vector2(8, 15)
@@ -51,11 +52,24 @@ one_shot = true
 [node name="Alarmed" type="Node" parent="StateMachine"]
 script = ExtResource("6_8l4y6")
 
+[node name="Timer" type="Timer" parent="StateMachine/Alarmed"]
+
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_kqpem")
 
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -30.0
+offset_right = 22.0
+offset_bottom = -7.0
+theme_override_fonts/font = ExtResource("7_csqpb")
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="StateMachine/Wander/Timer" to="StateMachine/Wander" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Alarmed/Timer" to="StateMachine/Alarmed" method="_on_timer_timeout"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
