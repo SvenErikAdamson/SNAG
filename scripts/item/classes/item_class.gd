@@ -8,8 +8,6 @@ class_name BaseItem
 
 @export_multiline var hover_text: String
 
-
-
 func get_texture() -> Texture:
 	return item_texture
 
@@ -18,4 +16,3 @@ func get_hover_text() -> String:
 
 func interact():
 	pass
-	

@@ -17,11 +17,6 @@ class_name WorkShop
 @export var upgrades: Array[Dictionary]
 @export_group("")
 
-
-
-
-
-
 @export var input_required: 	bool
 @export var endless_production: bool
 @export var active: 			bool
