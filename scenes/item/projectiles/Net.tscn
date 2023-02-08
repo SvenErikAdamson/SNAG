@@ -7,7 +7,7 @@
 
 [node name="Net" type="Area2D" groups=["Projectiles"]]
 scale = Vector2(0.5, 0.5)
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_dg1pk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -15,3 +15,5 @@ shape = SubResource("CircleShape2D_t4i8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_56pud")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
