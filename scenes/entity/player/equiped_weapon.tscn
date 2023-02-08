@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbo344dcwk3ri"]
+
+[ext_resource type="Texture2D" uid="uid://bbhul4ycwdds2" path="res://assets/sprites/items/weapons/crossbow.png" id="1_hvn06"]
+[ext_resource type="Script" path="res://scenes/entity/player/equipped_weapon.gd" id="2_07xpo"]
+
+[node name="EquippedWeapon" type="Sprite2D"]
+texture = ExtResource("1_hvn06")
+script = ExtResource("2_07xpo")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

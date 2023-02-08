@@ -11,14 +11,16 @@ func enter(_msg := {}) -> void:
 	human.animation_player.play("move_right")
 	
 func _process(delta):
+	if human.trapped == true:
+		state_machine.transition_to("Trapped")
 	if human.alarmed == true:
 		state_machine.transition_to("Alarmed")
-	
-	var human_pos = human.global_position
-	var direction = human_pos.direction_to(target_position)
-	human.sprite.flip_h = human.velocity.x < 0
-	human.velocity = direction* human.speed *human.acceleration* delta
-	human.move_and_slide()
+	else:
+		var human_pos = human.global_position
+		var direction = human_pos.direction_to(target_position)
+		human.sprite.flip_h = human.velocity.x < 0
+		human.velocity = direction* human.speed *human.acceleration* delta
+		human.move_and_slide()
 #	await get_tree().create_timer(randf_range(1,3)).timeout
 #	var random_state = get_random_state(["Idle", "Wander"])
 #	state_machine.transition_to(random_state)

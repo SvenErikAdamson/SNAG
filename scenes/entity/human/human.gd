@@ -12,16 +12,17 @@ class_name Human
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
+var trapped: bool = false
 var alarmed: bool = false
 var danger_element = null
 
 func _physics_process(delta):
 	label.text = str(statemachine.state.name)
+	
 func _on_detection_area_body_entered(body):
 	if body is Player:
 		alarmed = true
 		danger_element = body as Player
-		print(danger_element)
 
 func _on_detection_area_body_exited(body):
 	if body is Player:
@@ -29,3 +30,6 @@ func _on_detection_area_body_exited(body):
 		alarmed = false
 		danger_element = null
 
+func _on_hit_box_area_entered(area):
+	if area is Projectile:
+		trapped = true

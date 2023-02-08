@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cj41ijxf22vei"]
+[gd_scene load_steps=25 format=3 uid="uid://cj41ijxf22vei"]
 
 [ext_resource type="Script" path="res://scenes/entity/player/player.gd" id="1_vunmy"]
 [ext_resource type="Texture2D" uid="uid://ci2s4u4g2eolq" path="res://assets/sprites/bloopy/Bloopy_redux-Sheet.png" id="2_qvh4l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/entity/player/walk.gd" id="6_641hf"]
 [ext_resource type="Texture2D" uid="uid://bryb11wd2xai" path="res://assets/sprites/items/brain.png" id="6_qkrmm"]
 [ext_resource type="AudioStream" uid="uid://b6j5aopqhw7pm" path="res://assets/audio/sounds/bloopy/walk/walk_concrete.ogg" id="8_g4mph"]
+[ext_resource type="PackedScene" uid="uid://cbo344dcwk3ri" path="res://scenes/entity/player/equiped_weapon.tscn" id="9_gxpxq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_voua4"]
 atlas = ExtResource("2_qvh4l")
@@ -115,6 +116,9 @@ radius = 24.0
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_vunmy")
+
+[node name="EquippedWeapon" parent="." instance=ExtResource("9_gxpxq")]
+position = Vector2(0, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.3

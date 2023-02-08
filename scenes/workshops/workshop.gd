@@ -3,17 +3,17 @@ class_name WorkShop
 
 
 @export var machine_name: String = ""
-@export var input_area: 		NodePath
-@export var output_spot:		NodePath
+@export var input_area: NodePath
+@export var output_spot: NodePath
 @export var sprite: NodePath
 
 @export_group("Production")
-@export var takes_list: 		Array[Resource]
-@export var produces_list:		Array[Resource]
-@export var production_time: 	float
+@export var takes_list: Array[Resource]
+@export var produces_list: Array[Resource]
+@export var production_time: float
 
 @export_group("Levels & Upgrades")
-@export var progress: 			float
+@export var progress: float
 @export var upgrades: Array[Dictionary]
 @export_group("")
 
@@ -22,21 +22,21 @@ class_name WorkShop
 
 
 
-@export var input_required: 	bool
+@export var input_required: bool
 @export var endless_production: bool
-@export var active: 			bool
+@export var active: bool
 
 @export_multiline var hover_text: String
 
-@onready var item_scene					 		= load("res://scenes/item/Item.tscn")
-@onready var output: 			Marker2D 	= get_node(output_spot)
-@onready var input: 			Area2D 		= get_node(input_area)
+@onready var item_scene = load("res://scenes/item/Item.tscn")
+@onready var output: Marker2D = get_node(output_spot)
+@onready var input: Area2D = get_node(input_area)
 @onready var machine_sprite: AnimatedSprite2D = get_node(sprite)
 
-var relevant_person							 = null
-var is_focused:					bool		 = false
-var is_full: 					bool		 = false
-var in_progress: 				bool		 = false
+var relevant_person = null
+var is_focused: bool = false
+var is_full: bool = false
+var in_progress: bool = false
 
 var level: int = 0
 

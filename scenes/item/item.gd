@@ -10,7 +10,6 @@ var holder = null
 var sprite = null
 var hover_text: String
 
-func get_class(): return "Item"
 
 
 func _set_item(new_item: Resource):
