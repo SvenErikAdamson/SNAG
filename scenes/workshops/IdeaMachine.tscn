@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://n74706el1ke"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Script" path="res://scripts/workshops/idea_machine.gd" id="1_k2jia"]
-[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="2_hpc8u"]
-[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="3_bd4sq"]
+[ext_resource type="Script" path="res://scenes/workshops/idea_machine.gd" id="1_k2jia"]
+[ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="2_hpc8u"]
+[ext_resource type="Resource" path="res://scenes/item/data/ideas.tres" id="3_bd4sq"]
 [ext_resource type="Texture2D" uid="uid://b5ojfbt1qmbpk" path="res://assets/sprites/robots/idea_robot.png" id="4_d24fg"]
-[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="5_dy4jj"]
+[ext_resource type="PackedScene" path="res://scenes/ui/WorkShopInfo.tscn" id="5_dy4jj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7p5d"]
 atlas = ExtResource("4_d24fg")

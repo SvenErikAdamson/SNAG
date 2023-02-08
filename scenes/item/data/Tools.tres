@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="MachineParts" load_steps=3 format=3 uid="uid://d3w4ndsy30p7q"]
+[gd_resource type="Resource" script_class="MachineParts" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://cqih04o6myr5b" path="res://assets/sprites/items/tools.png" id="1_cn14r"]
-[ext_resource type="Script" path="res://scripts/item/classes/machine_parts_class.gd" id="1_io1jb"]
+[ext_resource type="Script" path="res://scenes/item/classes/machine_parts_class.gd" id="1_io1jb"]
 
 [resource]
 script = ExtResource("1_io1jb")

@@ -1,18 +1,18 @@
 [gd_scene load_steps=41 format=3 uid="uid://dqbq3lv1cv4x7"]
 
 [ext_resource type="Texture2D" uid="uid://ciddap0ctmmvs" path="res://assets/sprites/environment/ground_set.png" id="1_qc56e"]
-[ext_resource type="PackedScene" uid="uid://bie1xtr862liu" path="res://scenes/entity/player/Player.tscn" id="2_0hlr8"]
+[ext_resource type="PackedScene" uid="uid://cj41ijxf22vei" path="res://scenes/entity/player/Player.tscn" id="2_0hlr8"]
 [ext_resource type="Texture2D" uid="uid://dgbnwkelxu22q" path="res://assets/sprites/environment/walls.png" id="2_ccbou"]
 [ext_resource type="Texture2D" uid="uid://cvc6edee18ogd" path="res://assets/sprites/environment/on_ground.png" id="3_2rms7"]
-[ext_resource type="PackedScene" uid="uid://caolty8lx0k2w" path="res://scenes/item/Item.tscn" id="3_jw7os"]
-[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="4_alowu"]
-[ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="5_btnfo"]
-[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="5_kgyt1"]
-[ext_resource type="Script" path="res://scripts/ui/interface_manager.gd" id="7_clgup"]
+[ext_resource type="PackedScene" path="res://scenes/item/Item.tscn" id="3_jw7os"]
+[ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="4_alowu"]
+[ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="5_btnfo"]
+[ext_resource type="Resource" path="res://scenes/item/data/ideas.tres" id="5_kgyt1"]
 [ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="8_y61af"]
-[ext_resource type="PackedScene" uid="uid://pcdo1kg7iq2o" path="res://scenes/workshops/HumanTrap.tscn" id="10_upt5w"]
-[ext_resource type="PackedScene" uid="uid://byc5b2cgrthnd" path="res://scenes/interactive/BasicDoor.tscn" id="11_0u7ak"]
-[ext_resource type="PackedScene" uid="uid://4m1a732wkwma" path="res://scenes/entity/human/Human.tscn" id="11_afcfn"]
+[ext_resource type="PackedScene" path="res://scenes/workshops/HumanTrap.tscn" id="10_upt5w"]
+[ext_resource type="PackedScene" path="res://scenes/interactive/BasicDoor.tscn" id="11_0u7ak"]
+[ext_resource type="PackedScene" uid="uid://cxjf43f7hd5wb" path="res://scenes/entity/human/Human.tscn" id="11_afcfn"]
+[ext_resource type="Script" path="res://scenes/ui/interface_manager.gd" id="12_et5xk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8d156"]
 texture = ExtResource("1_qc56e")
@@ -1087,7 +1087,7 @@ position = Vector2(0, 216)
 position = Vector2(0, 152)
 
 [node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("7_clgup")
+script = ExtResource("12_et5xk")
 
 [node name="GUI" type="Control" parent="UI"]
 layout_mode = 3

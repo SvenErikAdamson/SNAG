@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://pcdo1kg7iq2o"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Script" path="res://scripts/workshops/pod.gd" id="1_7k4fg"]
+[ext_resource type="Script" path="res://scenes/workshops/pod.gd" id="1_7k4fg"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
-[ext_resource type="Resource" uid="uid://og53ww8vhp32" path="res://scenes/item/data/Human.tres" id="2_ivyp2"]
-[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="4_hsev4"]
-[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="5_5j60e"]
-[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="7_6cem4"]
+[ext_resource type="Resource" path="res://scenes/item/data/Human.tres" id="2_ivyp2"]
+[ext_resource type="Resource" path="res://scenes/item/data/ideas.tres" id="4_hsev4"]
+[ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="5_5j60e"]
+[ext_resource type="PackedScene" path="res://scenes/ui/WorkShopInfo.tscn" id="7_6cem4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_batji"]
 atlas = ExtResource("2_7rahq")

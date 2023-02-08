@@ -2,13 +2,16 @@ extends Entity
 class_name Human
 
 @onready var wander = $StateMachine/Wander
-
 @export var speed: float = 150.0
 @export var max_speed: float = 150.0
 @export var acceleration: float = 75
 @export var friction: float  = acceleration / speed
+
 @onready var statemachine = $StateMachine
-@onready var label = $Label
+@onready var label: Label = $Label
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite: Sprite2D = $Sprite2D
+
 var alarmed: bool = false
 var danger_element = null
 

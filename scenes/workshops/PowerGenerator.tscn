@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2e0dans6kl64"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://scripts/workshops/power_generator.gd" id="1_h4rrp"]
+[ext_resource type="Script" path="res://scenes/workshops/power_generator.gd" id="1_h4rrp"]
 [ext_resource type="Texture2D" uid="uid://cwodsou7we6lt" path="res://assets/sprites/machines/power_generator.png" id="1_sdoiv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6j2e6"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://brsmwkdm06mgb"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="Script" path="res://scripts/workshops/central_power.gd" id="1_4mcss"]
+[ext_resource type="Script" path="res://scenes/workshops/central_power.gd" id="1_4mcss"]
 [ext_resource type="Texture2D" uid="uid://dckvyw0xl6esg" path="res://assets/sprites/machines/CentralPower.png" id="2_yot2b"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_qtleq"]
-[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="5_qv3bm"]
+[ext_resource type="PackedScene" path="res://scenes/ui/WorkShopInfo.tscn" id="5_qv3bm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80sme"]
 atlas = ExtResource("4_qtleq")

@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://4m1a732wkwma"]
+[gd_scene load_steps=15 format=3 uid="uid://cxjf43f7hd5wb"]
 
-[ext_resource type="Script" path="res://scripts/entity/human/human.gd" id="1_4lcow"]
-[ext_resource type="Texture2D" uid="uid://q25lugwl7pkq" path="res://assets/sprites/items/human.png" id="2_6lsen"]
-[ext_resource type="Script" path="res://scripts/statemachine/statemachine.gd" id="3_6e82g"]
-[ext_resource type="Script" path="res://scripts/entity/human/idle.gd" id="4_8330x"]
-[ext_resource type="Script" path="res://scripts/entity/human/wander.gd" id="5_8yfsx"]
-[ext_resource type="Script" path="res://scripts/entity/human/alarmed.gd" id="6_8l4y6"]
+[ext_resource type="Script" path="res://scenes/entity/human/human.gd" id="1_onf1r"]
+[ext_resource type="Texture2D" uid="uid://dkeq7gtqw8e2b" path="res://assets/sprites/characters/humanoid/character_green.png" id="2_p8o36"]
+[ext_resource type="Script" path="res://scenes/entity/statemachine/statemachine.gd" id="3_008db"]
+[ext_resource type="Script" path="res://scenes/entity/human/idle.gd" id="4_r30sm"]
+[ext_resource type="Script" path="res://scenes/entity/human/wander.gd" id="5_16im8"]
+[ext_resource type="Script" path="res://scenes/entity/human/alarmed.gd" id="6_tamt8"]
 [ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="7_csqpb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjqg4"]
@@ -15,17 +15,75 @@ size = Vector2(8, 15)
 radius = 7.07107
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqpem"]
-radius = 130.465
+radius = 98.0051
+
+[sub_resource type="Animation" id="Animation_hf53t"]
+resource_name = "move_right"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_twdji"]
+resource_name = "idle_front"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_x2ulv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdja3"]
+_data = {
+"RESET": SubResource("Animation_x2ulv"),
+"idle_front": SubResource("Animation_twdji"),
+"move_right": SubResource("Animation_hf53t")
+}
 
 [node name="Human" type="CharacterBody2D"]
-script = ExtResource("1_4lcow")
-speed = 400.0
-max_speed = 400.0
+script = ExtResource("1_onf1r")
 acceleration = 20.0
 friction = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6lsen")
+texture = ExtResource("2_p8o36")
+hframes = 5
+vframes = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -37,20 +95,20 @@ shape = SubResource("RectangleShape2D_vjqg4")
 shape = SubResource("CircleShape2D_uiu23")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_6e82g")
+script = ExtResource("3_008db")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("4_8330x")
+script = ExtResource("4_r30sm")
 
 [node name="Wander" type="Node" parent="StateMachine"]
-script = ExtResource("5_8yfsx")
+script = ExtResource("5_16im8")
 
 [node name="Timer" type="Timer" parent="StateMachine/Wander"]
 one_shot = true
 
 [node name="Alarmed" type="Node" parent="StateMachine"]
-script = ExtResource("6_8l4y6")
+script = ExtResource("6_tamt8")
 
 [node name="Timer" type="Timer" parent="StateMachine/Alarmed"]
 
@@ -68,6 +126,11 @@ theme_override_fonts/font = ExtResource("7_csqpb")
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xdja3")
+}
 
 [connection signal="timeout" from="StateMachine/Wander/Timer" to="StateMachine/Wander" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Alarmed/Timer" to="StateMachine/Alarmed" method="_on_timer_timeout"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ci5xe2s76n6j2"]
+[gd_scene load_steps=16 format=3]
 
-[ext_resource type="Script" path="res://scripts/workshops/battery_robot.gd" id="1_ncuht"]
-[ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="2_ku6hp"]
-[ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="3_4cf4j"]
+[ext_resource type="Script" path="res://scenes/workshops/battery_robot.gd" id="1_ncuht"]
+[ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="2_ku6hp"]
+[ext_resource type="Resource" path="res://scenes/item/data/Intestines.tres" id="3_4cf4j"]
 [ext_resource type="Texture2D" uid="uid://ca03ak4qv5ss1" path="res://assets/sprites/robots/battery_robot-Sheet.png" id="4_ijyt5"]
-[ext_resource type="Resource" uid="uid://6xrf2jv7gy6a" path="res://scenes/item/data/Battery.tres" id="4_p557t"]
-[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="5_8qbq1"]
+[ext_resource type="Resource" path="res://scenes/item/data/Battery.tres" id="4_p557t"]
+[ext_resource type="PackedScene" path="res://scenes/ui/WorkShopInfo.tscn" id="5_8qbq1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i2al"]
 atlas = ExtResource("4_ijyt5")

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://6xrf2jv7gy6a"]
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://scripts/item/classes/item_class.gd" id="1_44acu"]
+[ext_resource type="Script" path="res://scenes/item/classes/item_class.gd" id="1_44acu"]
 [ext_resource type="Texture2D" uid="uid://dl3r3ymbkn1ng" path="res://assets/sprites/items/battery.png" id="1_h5wlo"]
 
 [resource]

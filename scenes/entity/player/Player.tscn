@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bie1xtr862liu"]
+[gd_scene load_steps=24 format=3 uid="uid://cj41ijxf22vei"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_g16gw"]
+[ext_resource type="Script" path="res://scenes/entity/player/player.gd" id="1_vunmy"]
 [ext_resource type="Texture2D" uid="uid://ci2s4u4g2eolq" path="res://assets/sprites/bloopy/Bloopy_redux-Sheet.png" id="2_qvh4l"]
 [ext_resource type="Texture2D" uid="uid://cndbkpk8x0nop" path="res://assets/sprites/misc/light.png" id="2_rckbx"]
-[ext_resource type="Script" path="res://scripts/statemachine/statemachine.gd" id="3_2oenj"]
-[ext_resource type="Script" path="res://scripts/player/idle.gd" id="4_vlor3"]
-[ext_resource type="Script" path="res://scripts/player/walk.gd" id="5_wnqww"]
+[ext_resource type="Script" path="res://scenes/entity/statemachine/statemachine.gd" id="4_mug7p"]
+[ext_resource type="Script" path="res://scenes/entity/player/idle.gd" id="5_2csfv"]
+[ext_resource type="Script" path="res://scenes/entity/player/walk.gd" id="6_641hf"]
 [ext_resource type="Texture2D" uid="uid://bryb11wd2xai" path="res://assets/sprites/items/brain.png" id="6_qkrmm"]
 [ext_resource type="AudioStream" uid="uid://b6j5aopqhw7pm" path="res://assets/audio/sounds/bloopy/walk/walk_concrete.ogg" id="8_g4mph"]
 
@@ -114,7 +114,7 @@ radius = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
-script = ExtResource("1_g16gw")
+script = ExtResource("1_vunmy")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.3
@@ -138,15 +138,15 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_4gpjn")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_2oenj")
+script = ExtResource("4_mug7p")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("4_vlor3")
+script = ExtResource("5_2csfv")
 _animated_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("5_wnqww")
+script = ExtResource("6_641hf")
 _animated_sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]

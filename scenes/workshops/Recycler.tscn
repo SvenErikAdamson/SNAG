@@ -1,14 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://mish3owtg5i8"]
+[gd_scene load_steps=15 format=3]
 
-[ext_resource type="Script" path="res://scripts/workshops/recycler.gd" id="1_tlc4i"]
+[ext_resource type="Script" path="res://scenes/workshops/recycler.gd" id="1_tlc4i"]
 [ext_resource type="Texture2D" uid="uid://dvfq1lob77qsi" path="res://assets/sprites/machines/Recycle.png" id="2_iyq4v"]
-[ext_resource type="Resource" uid="uid://og53ww8vhp32" path="res://scenes/item/data/Human.tres" id="2_p0a4l"]
-[ext_resource type="Resource" uid="uid://c6upe0q1jsmm7" path="res://scenes/item/data/Intestines.tres" id="3_rvc8d"]
-[ext_resource type="Resource" uid="uid://bhmk2ng8e6qfc" path="res://scenes/item/data/Heart.tres" id="4_6igtf"]
-[ext_resource type="PackedScene" uid="uid://ckl3af1c8cs8o" path="res://scenes/ui/WorkShopInfo.tscn" id="4_q260t"]
+[ext_resource type="Resource" path="res://scenes/item/data/Human.tres" id="2_p0a4l"]
+[ext_resource type="Resource" path="res://scenes/item/data/Intestines.tres" id="3_rvc8d"]
+[ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="4_6igtf"]
+[ext_resource type="PackedScene" path="res://scenes/ui/WorkShopInfo.tscn" id="4_q260t"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_st16s"]
-[ext_resource type="Resource" uid="uid://d3w4ndsy30p7q" path="res://scenes/item/data/Tools.tres" id="5_feudb"]
-[ext_resource type="Resource" uid="uid://gvll1vr2ehc" path="res://scenes/item/data/ideas.tres" id="6_rutjp"]
+[ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="5_feudb"]
+[ext_resource type="Resource" path="res://scenes/item/data/ideas.tres" id="6_rutjp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mhqh"]
 atlas = ExtResource("2_iyq4v")

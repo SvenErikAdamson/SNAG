@@ -7,6 +7,8 @@ extends State
 
 func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
+	human.animation_player.play("idle_front")
+
 	
 func _physics_process(delta):
 		owner.velocity = Vector2.ZERO.move_toward(Vector2.ZERO, human.friction * delta)

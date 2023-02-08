@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://byc5b2cgrthnd"]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Texture2D" uid="uid://c6mtpwp0n56ev" path="res://assets/sprites/interactive/Door-Sheet.png" id="1_7ptk7"]
-[ext_resource type="Script" path="res://scripts/interactive/door.gd" id="1_new8p"]
+[ext_resource type="Script" path="res://scenes/interactive/door.gd" id="1_new8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7er2"]
 size = Vector2(32, 8)
