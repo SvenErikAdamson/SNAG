@@ -10,8 +10,8 @@ func enter(_msg := {}) -> void:
 	pass
 
 func _process(delta):
-#	if human.alarmed == true:
-#		state_machine.transition_to("Alarmed")
+	if human.alarmed == true:
+		state_machine.transition_to("Alarmed")
 	
 	var human_pos = human.global_position
 	var direction = human_pos.direction_to(target_position)

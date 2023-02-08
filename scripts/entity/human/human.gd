@@ -18,7 +18,7 @@ func _on_detection_area_body_entered(body):
 	if body is Player:
 		alarmed = true
 		danger_element = body as Player
-
+		print(danger_element)
 
 func _on_detection_area_body_exited(body):
 	if body is Player:
