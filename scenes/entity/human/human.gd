@@ -2,7 +2,6 @@ extends Entity
 class_name Human
 
 @export var speed: float = 150.0
-@export var max_speed: float = 150.0
 @export var acceleration: float = 75
 @export var friction: float  = acceleration / speed
 @export var item_scene: PackedScene
@@ -35,7 +34,8 @@ func _on_detection_area_body_exited(body):
 func _on_hit_box_area_entered(area):
 	if area is Projectile:
 		trapped = true
-
+		
+## Gotta fix this, error my life away, thread?
 func create_human_item():
 	var human = item_scene.instantiate()
 	human.item = human_item

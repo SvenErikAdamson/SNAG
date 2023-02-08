@@ -82,8 +82,6 @@ _data = {
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_onf1r")
-acceleration = 20.0
-friction = 50.0
 item_scene = ExtResource("2_xlend")
 human_item = ExtResource("3_ejuh5")
 
