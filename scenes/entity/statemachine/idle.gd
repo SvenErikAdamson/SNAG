@@ -7,7 +7,7 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 	human.animation_player.play("idle_front")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 		if human.alarmed and !human.trapped:
 			state_machine.transition_to("Alarmed")
 		if human.trapped:

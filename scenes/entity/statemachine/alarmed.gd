@@ -17,7 +17,7 @@ func _physics_process(delta):
 		timer.start(3)
 
 func _on_timer_timeout():
-	human.alarmed == false
+	human.alarmed = false
 	state_machine.transition_to(get_random_state(["Idle", "Wander"]))
 
 

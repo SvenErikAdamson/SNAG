@@ -7,6 +7,6 @@ var speed: int = 200
 func _physics_process(delta):
 	position +=(Vector2.RIGHT*speed).rotated(rotation) * delta
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	##destroy bullet if hit something
 	pass

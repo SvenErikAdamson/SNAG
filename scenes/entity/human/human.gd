@@ -1,12 +1,14 @@
 extends Entity
 class_name Human
 
-@onready var wander = $StateMachine/Wander
 @export var speed: float = 150.0
 @export var max_speed: float = 150.0
 @export var acceleration: float = 75
 @export var friction: float  = acceleration / speed
+@export var item_scene: PackedScene
+@export var human_item: Resource
 
+@onready var wander = $StateMachine/Wander
 @onready var statemachine = $StateMachine
 @onready var label: Label = $Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -16,7 +18,7 @@ var trapped: bool = false
 var alarmed: bool = false
 var danger_element = null
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	label.text = str(statemachine.state.name)
 	
 func _on_detection_area_body_entered(body):
@@ -33,3 +35,15 @@ func _on_detection_area_body_exited(body):
 func _on_hit_box_area_entered(area):
 	if area is Projectile:
 		trapped = true
+
+func create_human_item():
+	var human = item_scene.instantiate()
+	human.item = human_item
+	human.global_position = global_position
+	get_parent().add_child(human)
+	queue_free()
+	
+func _on_hit_box_body_entered(body):
+	if body is Player and trapped:
+		create_human_item()
+

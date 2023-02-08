@@ -1,10 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://dqbq3lv1cv4x7"]
+[gd_scene load_steps=41 format=3 uid="uid://dhnvca3wfjat5"]
 
-[ext_resource type="Texture2D" uid="uid://ciddap0ctmmvs" path="res://assets/sprites/environment/ground_set.png" id="1_qc56e"]
+[ext_resource type="Texture2D" uid="uid://ciddap0ctmmvs" path="res://assets/sprites/environment/bunker/ground_set.png" id="1_1a0da"]
 [ext_resource type="PackedScene" uid="uid://cj41ijxf22vei" path="res://scenes/entity/player/Player.tscn" id="2_0hlr8"]
-[ext_resource type="Texture2D" uid="uid://dgbnwkelxu22q" path="res://assets/sprites/environment/walls.png" id="2_ccbou"]
-[ext_resource type="Texture2D" uid="uid://cvc6edee18ogd" path="res://assets/sprites/environment/on_ground.png" id="3_2rms7"]
+[ext_resource type="Texture2D" uid="uid://dgbnwkelxu22q" path="res://assets/sprites/environment/bunker/walls.png" id="2_fbpr4"]
 [ext_resource type="PackedScene" path="res://scenes/item/Item.tscn" id="3_jw7os"]
+[ext_resource type="Texture2D" uid="uid://cvc6edee18ogd" path="res://assets/sprites/environment/bunker/on_ground.png" id="3_vfl3d"]
 [ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="4_alowu"]
 [ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="5_btnfo"]
 [ext_resource type="Resource" path="res://scenes/item/data/ideas.tres" id="5_kgyt1"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://scenes/ui/interface_manager.gd" id="12_et5xk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8d156"]
-texture = ExtResource("1_qc56e")
+texture = ExtResource("1_1a0da")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -419,7 +419,7 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rlpgo"]
-texture = ExtResource("2_ccbou")
+texture = ExtResource("2_fbpr4")
 0:0/0 = 0
 0:0/0/z_index = 9
 0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_hwpnv")
@@ -886,7 +886,7 @@ texture = ExtResource("2_ccbou")
 15:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ftldu"]
-texture = ExtResource("3_2rms7")
+texture = ExtResource("3_vfl3d")
 0:0/0 = 0
 0:0/0/z_index = 10
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1076,6 +1076,8 @@ item = ExtResource("5_btnfo")
 
 [node name="Pod" parent="Level-00/Machines" instance=ExtResource("10_upt5w")]
 position = Vector2(200, 152)
+active = null
+hover_text = null
 
 [node name="Human2" parent="Level-00" instance=ExtResource("11_afcfn")]
 position = Vector2(0, 216)

@@ -17,16 +17,9 @@ class_name WorkShop
 @export var upgrades: Array[Dictionary]
 @export_group("")
 
-
-
-
-
-
 @export var input_required: bool
 @export var endless_production: bool
-@export var active: bool
-
-@export_multiline var hover_text: String
+@export var broken: bool
 
 @onready var item_scene = load("res://scenes/item/Item.tscn")
 @onready var output: Marker2D = get_node(output_spot)
@@ -48,7 +41,7 @@ func _ready():
 	update_ui.emit(upgrades[level])
 	if endless_production:
 		start_production_cycle()
-
+## This to bottom marker needs to be made more clear---------
 func player_interaction():
 	if Input.is_action_just_pressed("interact") and relevant_person != null and can_interact(relevant_person.item_carried) and relevant_person.item_carried != null:
 		var type = check_interaction_type(relevant_person.item_carried)
@@ -81,7 +74,7 @@ func check_interaction_type(item):
 		return 2
 	else:
 		return 3
-		
+## This to top marker needs to be made more clear---------
 func upgrade_check(item):
 	check_if_lvl()
 	if !upgrades[level].is_empty():
