@@ -17,7 +17,7 @@ func _process(delta):
 		state_machine.transition_to("Alarmed")
 	else:
 		var human_pos = human.global_position
-		var direction = human_pos.direction_to(target_position)
+		var direction = human_pos.direction_to(target_position).normalized()
 		human.sprite.flip_h = human.velocity.x < 0
 		human.velocity = direction* human.speed* human.acceleration * delta 
 		human.move_and_slide()
