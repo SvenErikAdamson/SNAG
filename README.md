@@ -2,7 +2,7 @@
 # Surely Not a Game
 Engine:	Godot 4
 <br/>
-Current version: Beta 17
+Current version: RC 1
 <br/>
 
 Short Description:
