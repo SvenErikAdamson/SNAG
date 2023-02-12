@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=9 format=3 uid="uid://w1bjen1saft4"]
 
 [ext_resource type="Script" path="res://scenes/workshops/central_power.gd" id="1_4mcss"]
 [ext_resource type="Texture2D" uid="uid://dckvyw0xl6esg" path="res://assets/sprites/machines/CentralPower.png" id="2_yot2b"]
+[ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="4_f4qg4"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="4_qtleq"]
-[ext_resource type="PackedScene" path="res://scenes/ui/WorkShopInfo.tscn" id="5_qv3bm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80sme"]
 atlas = ExtResource("4_qtleq")
@@ -43,6 +43,11 @@ height = 44.0
 [node name="CentralPower" type="StaticBody2D"]
 input_pickable = true
 script = ExtResource("1_4mcss")
+machine_name = "Central Power"
+input_area = NodePath("InteractionArea")
+output_spot = NodePath("Marker2D")
+sprite = NodePath("AnimatedSprite2D")
+upgrades = Array[Dictionary]([{}])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_og8y4")
@@ -61,13 +66,12 @@ shape = SubResource("CapsuleShape2D_l7xhm")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 24)
 
-[node name="WorkShopInfo" parent="." instance=ExtResource("5_qv3bm")]
-visible = false
-offset_left = -32.0
-offset_top = -142.0
-offset_right = 41.0
-offset_bottom = -72.0
-mouse_filter = 2
+[node name="BaseEnergy" type="ProgressBar" parent="."]
+offset_left = -73.0
+offset_top = -80.0
+offset_right = 68.0
+offset_bottom = -53.0
+theme_override_fonts/font = ExtResource("4_f4qg4")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
