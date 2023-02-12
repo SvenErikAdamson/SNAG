@@ -17,6 +17,5 @@ func _physics_process(_delta):
 			state_machine.transition_to(get_random_state(["Idle", "Wander"]))
 		else:
 			owner.velocity = Vector2.ZERO
-			
 
 
