@@ -140,23 +140,6 @@ text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RayCasts" type="Node2D" parent="."]
-
-[node name="RayCast2D" type="RayCast2D" parent="RayCasts"]
-target_position = Vector2(0, 25)
-
-[node name="RayCast2D2" type="RayCast2D" parent="RayCasts"]
-rotation = 1.5708
-target_position = Vector2(0, 25)
-
-[node name="RayCast2D3" type="RayCast2D" parent="RayCasts"]
-rotation = -3.14159
-target_position = Vector2(0, 25)
-
-[node name="RayCast2D4" type="RayCast2D" parent="RayCasts"]
-rotation = -1.5708
-target_position = Vector2(0, 25)
-
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="StateMachine/Wander/Timer" to="StateMachine/Wander" method="_on_timer_timeout"]
