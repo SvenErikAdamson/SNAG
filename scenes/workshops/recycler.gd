@@ -1,9 +1,10 @@
 extends WorkShop
 @onready var animation_player: AnimatedSprite2D = $AnimatedSprite2D
 
-func _process(_delta):
+func _process(delta):
 	focus_workshop()
 	player_interaction()
+	use_power(delta,1)
 
 func _on_interaction_area_body_entered(body):
 	if body is Player:

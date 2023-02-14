@@ -64,7 +64,7 @@ func can_interact(item):
 	if takes_list.has(item) or upgrades[level].has(item) and relevant_person.item_carried != null :
 		return true
 	else:
-		print("nothing")
+		print("Invalid input")
 		return false
 		
 func check_interaction_type(item):
@@ -99,7 +99,10 @@ func check_if_lvl():
 		update_ui.emit(upgrades[level])
 		level_up.emit(machine_name, level)
 
-	
+func use_power(delta: float, power_usage: float = 1):
+	if in_progress:
+		Globals.base_energy -= delta * power_usage
+		
 # Choosing a single random item to spawn
 # Chance depends on the weight the Item Resource has
 func choose_item(items_array: Array = produces_list):

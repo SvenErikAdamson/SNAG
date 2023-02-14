@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://dr1gsov87s7xw"]
 
 [ext_resource type="Script" path="res://scenes/workshops/pod.gd" id="1_7k4fg"]
 [ext_resource type="Texture2D" uid="uid://bkeb4o8koxtow" path="res://assets/sprites/machines/income_pod.png" id="2_7rahq"]
-[ext_resource type="Resource" path="res://scenes/item/data/Human.tres" id="2_ivyp2"]
+[ext_resource type="Resource" uid="uid://ju5p3xs3dj8y" path="res://scenes/item/data/Human.tres" id="2_ivyp2"]
 [ext_resource type="Resource" path="res://scenes/item/data/ideas.tres" id="4_hsev4"]
 [ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="5_5j60e"]
 [ext_resource type="PackedScene" path="res://scenes/ui/WorkShopInfo.tscn" id="7_6cem4"]
