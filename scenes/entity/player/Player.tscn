@@ -121,11 +121,11 @@ script = ExtResource("1_vunmy")
 position = Vector2(0, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.3
+energy = 0.7
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.407843)
 texture = ExtResource("2_rckbx")
-texture_scale = 0.4
+texture_scale = 0.9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jqoql")

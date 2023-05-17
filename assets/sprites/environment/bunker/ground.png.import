@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvc6edee18ogd"
-path="res://.godot/imported/on_ground.png-b09ed5f88f04eaede1c1d0d7888e9cf2.ctex"
+uid="uid://bdki6xaa0xe70"
+path="res://.godot/imported/ground.png-ecbb04c779fc57b8350f84150b93b4f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/environment/bunker/on_ground.png"
-dest_files=["res://.godot/imported/on_ground.png-b09ed5f88f04eaede1c1d0d7888e9cf2.ctex"]
+source_file="res://assets/sprites/environment/bunker/ground.png"
+dest_files=["res://.godot/imported/ground.png-ecbb04c779fc57b8350f84150b93b4f0.ctex"]
 
 [params]
 
