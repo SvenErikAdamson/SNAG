@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhnvca3wfjat5"]
+[gd_scene load_steps=19 format=3 uid="uid://dhnvca3wfjat5"]
 
 [ext_resource type="Texture2D" uid="uid://bdki6xaa0xe70" path="res://assets/sprites/environment/bunker/ground.png" id="1_pnpwg"]
 [ext_resource type="PackedScene" uid="uid://cj41ijxf22vei" path="res://scenes/entity/player/Player.tscn" id="2_0hlr8"]
@@ -9,7 +9,6 @@
 [ext_resource type="FontFile" uid="uid://c8xqsrectpne1" path="res://assets/fonts/m5x7.ttf" id="8_y61af"]
 [ext_resource type="PackedScene" uid="uid://dr1gsov87s7xw" path="res://scenes/workshops/HumanTrap.tscn" id="10_upt5w"]
 [ext_resource type="PackedScene" path="res://scenes/interactive/BasicDoor.tscn" id="11_0u7ak"]
-[ext_resource type="PackedScene" uid="uid://dtg1jkkchk166" path="res://scenes/entity/human/Human.tscn" id="11_afcfn"]
 [ext_resource type="Script" path="res://scenes/ui/interface_manager.gd" id="12_et5xk"]
 [ext_resource type="PackedScene" uid="uid://w1bjen1saft4" path="res://scenes/workshops/CentralPower.tscn" id="12_wiimi"]
 [ext_resource type="PackedScene" path="res://scenes/workshops/BatteryMaker.tscn" id="14_c1wua"]
@@ -195,24 +194,11 @@ endless_production = false
 [node name="Player" parent="Level-00" instance=ExtResource("2_0hlr8")]
 position = Vector2(352, 200)
 
-[node name="Humans" type="Node2D" parent="Level-00"]
-
-[node name="Human2" parent="Level-00/Humans" instance=ExtResource("11_afcfn")]
-position = Vector2(0, 704)
-
-[node name="Human" parent="Level-00/Humans" instance=ExtResource("11_afcfn")]
-position = Vector2(0, 640)
-
-[node name="Human3" parent="Level-00/Humans" instance=ExtResource("11_afcfn")]
-position = Vector2(360, 704)
-
-[node name="Human4" parent="Level-00/Humans" instance=ExtResource("11_afcfn")]
-position = Vector2(168, 832)
-
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("12_et5xk")
 
 [node name="GUI" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,7 +226,3 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.117647, 0.117647, 0.117647, 1)
