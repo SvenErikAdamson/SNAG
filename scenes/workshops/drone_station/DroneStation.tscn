@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://s2jcc10r67hv"]
 
-[ext_resource type="Script" path="res://scenes/workshops/grabber.gd" id="1_fq841"]
+[ext_resource type="Script" path="res://scenes/workshops/drone_station/grabber.gd" id="1_fq841"]
 [ext_resource type="Texture2D" uid="uid://dckvyw0xl6esg" path="res://assets/sprites/machines/CentralPower.png" id="2_pfrgb"]
-[ext_resource type="PackedScene" uid="uid://clkv7oc43kub6" path="res://scenes/workshops/drone.tscn" id="3_qlueo"]
-[ext_resource type="Script" path="res://scenes/workshops/drone.gd" id="4_34fr6"]
+[ext_resource type="PackedScene" uid="uid://clkv7oc43kub6" path="res://scenes/workshops/drone_station/drone.tscn" id="3_qlueo"]
+[ext_resource type="Script" path="res://scenes/workshops/drone_station/drone.gd" id="4_34fr6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwpbc"]
 size = Vector2(94, 48)
