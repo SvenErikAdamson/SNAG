@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://clkv7oc43kub6"]
+
+[ext_resource type="Texture2D" uid="uid://cqih04o6myr5b" path="res://assets/sprites/items/tools.png" id="1_b8vv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3ipu"]
+
+[node name="Drone" type="CharacterBody2D"]
+position = Vector2(0, -128)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b8vv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f3ipu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false

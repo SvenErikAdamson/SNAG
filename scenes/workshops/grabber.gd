@@ -19,8 +19,10 @@ func player_interaction():
 	if Input.is_action_just_pressed("interact"):
 		Globals.in_control = false
 		$Drone/Camera2D.enabled = true
+		$Drone.drone_used = true
 	if Input.is_action_just_pressed("escape"):
 		Globals.in_control = true
 		$Drone/Camera2D.enabled = false
+		$Drone.drone_used = false
 		
 		

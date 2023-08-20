@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bdki6xaa0xe70" path="res://assets/sprites/environment/bunker/ground.png" id="1_pnpwg"]
 [ext_resource type="PackedScene" uid="uid://cj41ijxf22vei" path="res://scenes/entity/player/Player.tscn" id="2_0hlr8"]
 [ext_resource type="PackedScene" path="res://scenes/item/Item.tscn" id="3_jw7os"]
-[ext_resource type="PackedScene" uid="uid://s2jcc10r67hv" path="res://scenes/interactive/grabber.tscn" id="4_52bbo"]
+[ext_resource type="PackedScene" uid="uid://s2jcc10r67hv" path="res://scenes/workshops/DroneStation.tscn" id="4_52bbo"]
 [ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="4_alowu"]
 [ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="5_btnfo"]
 [ext_resource type="Resource" path="res://scenes/item/data/ideas.tres" id="5_kgyt1"]
