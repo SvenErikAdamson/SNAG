@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://s2jcc10r67hv"]
+
+[ext_resource type="Script" path="res://scenes/interactive/grabber.gd" id="1_60bdg"]
+[ext_resource type="Texture2D" uid="uid://dckvyw0xl6esg" path="res://assets/sprites/machines/CentralPower.png" id="2_14s2f"]
+[ext_resource type="Texture2D" uid="uid://cqih04o6myr5b" path="res://assets/sprites/items/tools.png" id="3_64wi5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwpbc"]
+size = Vector2(94, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixert"]
+atlas = ExtResource("2_14s2f")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73bff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixert")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xvse"]
+size = Vector2(132.5, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3ipu"]
+
+[node name="Grabber" type="StaticBody2D"]
+script = ExtResource("1_60bdg")
+machine_name = "Grabber"
+input_area = NodePath("InteractionArea")
+output_spot = NodePath("Marker2D")
+sprite = NodePath("AnimatedSprite2D")
+upgrades = Array[Dictionary]([{}, {}])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_lwpbc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_73bff")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-5.25, 37)
+shape = SubResource("RectangleShape2D_3xvse")
+
+[node name="Drone" type="CharacterBody2D" parent="."]
+position = Vector2(0, -128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Drone"]
+texture = ExtResource("3_64wi5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drone"]
+shape = SubResource("RectangleShape2D_f3ipu")
+
+[node name="Camera2D" type="Camera2D" parent="Drone"]
+enabled = false

@@ -14,23 +14,24 @@ var object_focus = null
 var item_carried = null
 var hands_full  = false
 
+
 func ready():
 	set_velocity(Vector2.ZERO)
 
 func _physics_process(delta):
-	Globals.energy -= delta
-	apply_friction(delta)
-
-	if Input.is_action_just_pressed("swap_focus"):
-		change_focus(object_focus)
-
-	if Input.is_action_just_pressed("interact") and !hands_full and object_focus is Item:
-		item_pickup(object_focus)
-	elif Input.is_action_just_pressed("interact") and hands_full and object_focus != null and object_focus is Item:
-		item_swap(object_focus)
-
-	if Input.is_action_just_pressed("drop") and hands_full:
-		item_drop()
+	if Globals.in_control:
+		$Camera2D.enabled = true
+		apply_friction(delta)
+		if Input.is_action_just_pressed("swap_focus"):
+			change_focus(object_focus)
+		if Input.is_action_just_pressed("interact") and !hands_full and object_focus is Item:
+			item_pickup(object_focus)
+		elif Input.is_action_just_pressed("interact") and hands_full and object_focus != null and object_focus is Item:
+			item_swap(object_focus)
+		if Input.is_action_just_pressed("drop") and hands_full:
+			item_drop()
+	else:
+		$Camera2D.enabled = false
 
 func item_pickup(item):
 	if item != null and !objects_around.is_empty():
@@ -102,18 +103,20 @@ func _on_item_detector_body_exited(body):
 		objects_around.erase(body)
 
 func get_input_direction() -> Vector2:
-	var input_direction = Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_raw_strength("move_up")
-	)
+	if Globals.in_control:
+		var input_direction = Vector2(
+			Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+			Input.get_action_strength("move_down") - Input.get_action_raw_strength("move_up")
+		)
 
-	if input_direction < Vector2.ZERO:
-		$AnimatedSprite2D.flip_h = true
+		if input_direction < Vector2.ZERO:
+			$AnimatedSprite2D.flip_h = true
 
-	if input_direction > Vector2.ZERO:
-		$AnimatedSprite2D.flip_h = false
+		if input_direction > Vector2.ZERO:
+			$AnimatedSprite2D.flip_h = false
 
-	return input_direction 
+		return input_direction
+	return Vector2(0,0)
 
 func apply_friction(delta: float):
 	velocity -= velocity * friction * delta

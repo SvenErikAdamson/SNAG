@@ -8,6 +8,7 @@ func enter(_msg := {}) -> void:
 	animated_sprite.play("Walk")
 
 func physics_update(delta:float) -> void:
+
 	if player.timer.time_left <= 0:
 		player.player_audio.pitch_scale = randf_range(0.8,1.2)
 		player.player_audio.play()
