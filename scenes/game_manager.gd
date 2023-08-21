@@ -4,16 +4,23 @@ extends Node2D
 #check if docked or not
 #something more
 @export var space_ships = 5
+@onready var docking_pnt = $DockingPoint
+@onready var spawn_pnt = $SpawnPoint
+@onready var ship_scene = preload("res://scenes/ship.tscn")
 
 var is_docked: bool = false
 var is_spawned: bool = false
 
 func _ready():
 	pass
-func _process(delta):
+func _process(_delta):
 	if !is_spawned:
-		send_ship()
-		is_spawned = false
+		spawn_ship()
+		is_spawned = true
 
-func send_ship():
-	pass
+func spawn_ship():
+	var ship = ship_scene.instantiate()
+	add_child(ship)
+	ship.position = spawn_pnt.position
+	ship.destination = docking_pnt.global_position
+	

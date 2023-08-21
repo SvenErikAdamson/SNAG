@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bdki6xaa0xe70" path="res://assets/sprites/environment/bunker/ground.png" id="1_pnpwg"]
 [ext_resource type="PackedScene" uid="uid://cj41ijxf22vei" path="res://scenes/entity/player/Player.tscn" id="2_0hlr8"]
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="2_nteai"]
-[ext_resource type="PackedScene" path="res://scenes/item/Item.tscn" id="3_jw7os"]
+[ext_resource type="PackedScene" uid="uid://cyt7hmx6dus5h" path="res://scenes/item/Item.tscn" id="3_jw7os"]
 [ext_resource type="Texture2D" uid="uid://54oudymp4vu8" path="res://assets/sprites/environment/bunker/walls.png" id="3_nrt6d"]
 [ext_resource type="Resource" path="res://scenes/item/data/Tools.tres" id="4_alowu"]
 [ext_resource type="Resource" path="res://scenes/item/data/Heart.tres" id="5_btnfo"]
@@ -297,6 +297,12 @@ item = ExtResource("5_btnfo")
 
 [node name="Player" parent="Level-00" instance=ExtResource("2_0hlr8")]
 position = Vector2(352, 200)
+
+[node name="DockingPoint" type="Marker2D" parent="Level-00"]
+position = Vector2(688, 73)
+
+[node name="SpawnPoint" type="Marker2D" parent="Level-00"]
+position = Vector2(1240, 0)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("12_et5xk")
