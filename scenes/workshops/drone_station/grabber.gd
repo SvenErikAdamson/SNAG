@@ -16,7 +16,7 @@ func _on_interaction_area_body_exited(body):
 
 
 func player_interaction():
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and relevant_person != null:
 		Globals.in_control = false
 		$Drone/Camera2D.enabled = true
 		$Drone.drone_used = true
