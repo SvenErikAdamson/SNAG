@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhnvca3wfjat5"]
+
+[ext_resource type="PackedScene" uid="uid://sq6h3of0chyw" path="res://scenes/entity/machine/machine.tscn" id="1_f32fn"]
+[ext_resource type="PackedScene" uid="uid://cj41ijxf22vei" path="res://scenes/entity/player/Player.tscn" id="1_nt815"]
+[ext_resource type="PackedScene" uid="uid://d1se06rf46jke" path="res://scenes/entity/item/item.tscn" id="1_x2xg4"]
+
+[sub_resource type="GDScript" id="GDScript_y6qtx"]
+script/source = "extends CanvasLayer
+"
+
+[node name="Game" type="Node2D"]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="Level"]
+
+[node name="Machines" type="Node2D" parent="Level"]
+
+[node name="Machine" parent="Level/Machines" instance=ExtResource("1_f32fn")]
+position = Vector2(330, 111)
+
+[node name="Items" type="Node2D" parent="Level"]
+
+[node name="Item" parent="Level/Items" instance=ExtResource("1_x2xg4")]
+position = Vector2(222, 167)
+
+[node name="Player" parent="Level" instance=ExtResource("1_nt815")]
+position = Vector2(352, 200)
+
+[node name="PlayerCamera" type="Camera2D" parent="Level/Player"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_y6qtx")

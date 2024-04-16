@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cj41ijxf22vei"]
+[gd_scene load_steps=22 format=3 uid="uid://cj41ijxf22vei"]
 
 [ext_resource type="Script" path="res://scenes/entity/player/player.gd" id="1_vunmy"]
 [ext_resource type="Texture2D" uid="uid://ci2s4u4g2eolq" path="res://assets/sprites/bloopy/Bloopy_redux-Sheet.png" id="2_qvh4l"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://scenes/entity/player/idle.gd" id="5_2csfv"]
 [ext_resource type="Script" path="res://scenes/entity/player/walk.gd" id="6_641hf"]
 [ext_resource type="Texture2D" uid="uid://bryb11wd2xai" path="res://assets/sprites/items/brain.png" id="6_qkrmm"]
-[ext_resource type="AudioStream" uid="uid://b6j5aopqhw7pm" path="res://assets/audio/sounds/bloopy/walk/walk_concrete.ogg" id="8_g4mph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gpjn"]
+radius = 17.0294
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_voua4"]
 atlas = ExtResource("2_qvh4l")
@@ -108,13 +110,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2qmp"]
 size = Vector2(11, 14)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4gpjn"]
-radius = 24.0
-
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 motion_mode = 1
 script = ExtResource("1_vunmy")
+
+[node name="ItemDetectionArea" type="Area2D" parent="."]
+
+[node name="Radius" type="CollisionShape2D" parent="ItemDetectionArea"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_4gpjn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jqoql")
@@ -123,12 +128,6 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_k2qmp")
-
-[node name="ItemDetector" type="Area2D" parent="."]
-
-[node name="Radius" type="CollisionShape2D" parent="ItemDetector"]
-position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_4gpjn")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_mug7p")
@@ -142,18 +141,10 @@ _animated_sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("6_641hf")
 _animated_sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="CarriedObject" type="Sprite2D" parent="."]
+[node name="CarriedItemSprite" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -17)
 texture = ExtResource("6_qkrmm")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_g4mph")
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="body_entered" from="ItemDetector" to="." method="_on_item_detector_body_entered"]
-[connection signal="body_exited" from="ItemDetector" to="." method="_on_item_detector_body_exited"]
+[connection signal="body_entered" from="ItemDetectionArea" to="." method="_on_item_detection_area_body_entered"]
+[connection signal="body_exited" from="ItemDetectionArea" to="." method="_on_item_detection_area_body_exited"]

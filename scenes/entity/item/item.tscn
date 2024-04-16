@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1se06rf46jke"]
+
+[ext_resource type="Script" path="res://scenes/entity/item/item.gd" id="1_56mb2"]
+[ext_resource type="Texture2D" uid="uid://bryb11wd2xai" path="res://assets/sprites/items/brain.png" id="2_jlb8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kylcj"]
+
+[node name="Item" type="StaticBody2D" groups=["Items"]]
+input_pickable = true
+script = ExtResource("1_56mb2")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_jlb8k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kylcj")

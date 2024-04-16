@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hmnmhvi8tq33"]
 
-[ext_resource type="Script" path="res://singletons/soundmanager.gd" id="1_soxba"]
+[ext_resource type="Script" path="res://singletons/sound_manager.gd" id="1_soxba"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_soxba")

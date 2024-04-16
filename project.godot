@@ -10,15 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Synstem"
+config/name="SNAG"
 config/description="It's something"
-run/main_scene="res://scenes/Game.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+run/main_scene="res://scenes/game.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
 
 [autoload]
 
-Globals="*res://singletons/globals.gd"
-SoundManager="*res://singletons/SoundManager.tscn"
+SoundManager="*res://singletons/sound_manager.tscn"
 
 [display]
 
@@ -93,4 +92,3 @@ escape={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
